@@ -1,2 +1,2 @@
-# 1TM1-projetData-MMO
-Projet de second quadri dans le cadre du cours de Data. C'est un petit MMO en mode duel dans le même style de Dofus.
+# 1TM1-projetData-MyAnimList
+Projet de second quadri dans le cadre du cours de Data. MyAnimList est un catalogue d'animés vus par les étudiants de l'Ephec section TI.
