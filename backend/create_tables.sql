@@ -24,7 +24,7 @@ create table myList (
     pseudo char(30) not null,
     animeId integer not null,
     rating integer not null,
-    CONSTRAINT PK_pseudoanimeIdrating PRIMARY KEY (pseudo, animeId, rating),
+    CONSTRAINT PK_pseudoanimeIdrating PRIMARY KEY (pseudo, animeId),
     CONSTRAINT FK_pseudo FOREIGN KEY (pseudo) REFERENCES personne(pseudo),
     CONSTRAINT FK_animeId FOREIGN KEY (animeId) REFERENCES anime(animeId)
 );
