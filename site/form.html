@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>My Anime List</title>
+	<link rel="stylesheet" type="text/css" href="CSS/anime.css">
+	<script src="JS/anime.js"></script>
+</head>
+<body>
+	<nav>
+		<a class="ajout" href="form.html">Ajouter un anime</a>
+		<a class="acceuil" href="myAnimeList.html">Retour à l'acceuil</a>
+	</nav>
+	<form id="formulaire">
+	  <label for="titre">Pseudo:</label>
+	  <input type="text" id="pseudo" name="pseudo"><br>
+	  <label for="password">Mot de passe:</label>
+	  <input type="password" id="password" name="password"><br>
+	  <label for="titre">Titre de l'anime:</label>
+	  <input type="text" id="titre" name="titre"><br>
+	  <label for="titre">Genre:</label>
+	  <input type="text" id="genre" name="genre">
+	  <label for="note">Notez l'anime:</label>
+		<select id="note" name="notelist" form="formulaire">
+		  <option value="5">5</option>
+		  <option value="4">4</option>
+		  <option value="3">3</option>
+		  <option value="2">2</option>
+		  <option value="1">1</option>
+		</select><br>
+	  <input type="submit" value="Submit">
+	</form>
+
+</body>
+</html>

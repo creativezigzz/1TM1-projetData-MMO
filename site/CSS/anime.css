@@ -1,0 +1,53 @@
+ html {
+	font-family: verdana;
+	
+ } 
+ 
+ body {
+	background: url("../IMG/mal2.png");
+	background-repeat: no-repeat;	
+	background-position: top center;
+	background-color: lightgrey;
+	
+}	
+
+ 
+  h1 {
+	 text-align: center;
+}
+
+.ajout {
+	position: absolute;
+	top: 300px;
+	left: 990px;
+}
+
+.acceuil {
+	position: absolute;
+	top: 300px;
+	left: 800px;
+}
+
+form {
+	position: absolute;
+	top: 350px;
+	left: 800px;
+}
+
+label {
+	 margin-top:10px;
+	 display:block;
+}
+
+input[type=submit] {
+	margin-top: 10px;
+	margin-left: 20px;
+	background: black;
+	color: white;
+	height: 30px;
+	width: 80px;
+	font: bold 15px arial, sans-serif;
+	text-shadow:none;
+	border-radius: 5px;
+
+}
