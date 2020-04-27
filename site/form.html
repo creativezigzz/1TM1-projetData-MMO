@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="CSS/anime.css">
 	<script src="JS/anime.js"></script>
 </head>
-<body>
+<body onload="">
 	<nav>
 		<a class="ajout" href="form.html">Ajouter un anime</a>
 		<a class="accueil" href="myAnimeList.html">Retour à l'accueil</a>
@@ -21,7 +21,7 @@
 	  <label for="titre">Titre de l'anime:</label>
 	  <input type="text" id="titre" name="titre"><br>
 	  <label for="titre">Genre:</label>
-	  <input type="text" id="genre" name="genre">
+        <select id="genre" name="genre"></select>
 	  <label for="note">Notez l'anime:</label>
 		<select id="note" name="notelist" form="formulaire">
 		  <option value="5">5</option>
