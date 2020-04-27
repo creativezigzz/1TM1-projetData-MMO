@@ -1,19 +1,19 @@
 insert into genre
-(genrId,genrNom)
+(genrNom)
 values
-(1,"Action"),
-(2,"Aventure"),
-(3,"Comédie"),
-(4,"Drama"),
-(5,"Slice of Life"),
-(6,"Fantaisie"),
-(7,"Horreur"),
-(8,"Mystères")
-(9, "Psychologique"),
-(10,"Romance"),
-(11,"Science-Fiction"),
-(12,"Arts martiaux"),
-(13,"Furyo");
+("Action"),
+("Aventure"),
+("Comédie"),
+("Drama"),
+("Slice of Life"),
+("Fantaisie"),
+("Horreur"),
+("Mystères")
+("Psychologique"),
+("Romance"),
+("Science-Fiction"),
+("Arts martiaux"),
+("Furyo");
 
 insert into personne
 (pseudo,nomP,prenomP,mdp,token)
