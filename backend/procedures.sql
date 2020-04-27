@@ -23,8 +23,18 @@ END;
 CREATE PROCEDURE "DBA"."login"( IN username char(30), IN mdp char(64) )
 RESULT( nom char(30), prenom char(30), token char(32) )
 BEGIN
-	/* Créer un nouveau token: hash(rand(), 'md5') */
-	/* Vérifier que username et mdp sont correct et générer un nouveau token */
+	/* Le mot de passe est-il correct ? */
+	IF (SELECT 1 FROM personne WHERE pseudo = username AND mdp = mdp) = 1 THEN
+		SELECT null, null, null; /* Non, on retourne NULL */
+	ELSE
+		/* Oui, on crée un nouveau token (max 1 session) */
+		UPDATE personne
+		SET token = hash(rand(), 'md5')
+		WHERE pseudo = username;
+
+		/* Et on retourne les infos */
+		SELECT nomP, prenomP, token FROM personne WHERE pseudo = username;
+	ENDIF;
 END;
 
 CREATE PROCEDURE "DBA"."search"( IN name char(60) )
