@@ -8,7 +8,7 @@ values
 ('Slice of Life'),
 ('Fantaisie'),
 ('Horreur'),
-('Mystères')
+('Mystères'),
 ('Psychologique'),
 ('Romance'),
 ('Science-Fiction'),
@@ -16,7 +16,7 @@ values
 ('Furyo');
 
 insert into personne
-(pseudo,nomP,prenomP,mdp,token)
+(pseudo,nomP,prenomP,mdp)
 values
 ('igzz','Silva','Lucas','kikou'),
 ('matWolve','Walravens','Mathieu','koko'),
@@ -37,7 +37,7 @@ values
 ('One Piece',2),
 ('Hunter x Hunter',2),
 ('Attack on Titan',1),
-('Jojo's Bizarre Adventure',2),
+('Jojos Bizarre Adventure',2),
 ('Sword Art Online',6);
 
 insert into myList
