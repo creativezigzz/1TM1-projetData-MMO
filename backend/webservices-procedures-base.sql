@@ -15,3 +15,21 @@ BEGIN
 	--
 	return dbPath; /* renvoyer path */
 END;
+
+
+CREATE FUNCTION getExtension(filename varchar(255))
+/*
+	Renvoie l'extension du fichier ou null si le fichier n'en a pas.
+*/
+RETURNS CHAR(5)
+BEGIN
+	DECLARE @pos int;
+	/* On récupère l'index du dernier . */
+	SET @pos = charindex('.', reverse(filename));
+
+	IF @pos = 0 OR @pos > 5 THEN
+		/* Si la position est égale à 0 ou plus grande que 5 alors il n'y a pas d'extension */
+		RETURN NULL;
+	END IF;
+	RETURN RIGHT(filename, @pos - 1); /* On retourne les X derniers caractères */
+END;
