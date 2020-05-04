@@ -58,4 +58,4 @@ CREATE SERVICE "add_user"
 	USER "DBA"
 	URL ON
 	METHODS 'POST,GET'
-AS call "DBA"."add_user"(:username, :nom, :prenom, :mdp);
+AS call "DBA"."add_user"(:pseudo, :nom, :prenom, :mdp);
