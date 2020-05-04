@@ -8,9 +8,9 @@ function initForm(){
     xhrReqJson('http://localhost/getGenrList/',reponse,'genre');
 }
 /**
- * cette fonction permet de cree le select des genre dans le html.
+ * cette fonction permet de créer le select des genres dans le html.
  *
- * @obj {array} objet qui sera utiliser pour former le select
+ * @obj {array} objet qui sera utilisé pour former le select
  * @id {string} id de la page html ou les données iront
  */
 function reponse(obj,id){
