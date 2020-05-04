@@ -1,8 +1,8 @@
-CREATE PROCEDURE "DBA"."login"( IN username char(30), IN mdp char(64) )
+CREATE PROCEDURE "DBA"."login"( IN username char(30), IN password char(64) )
 RESULT( nom char(30), prenom char(30), token char(32) )
 BEGIN
 	/* Le mot de passe est-il correct ? */
-	IF (SELECT 1 FROM personne WHERE pseudo = username AND mdp = mdp) = 1 THEN
+	IF (SELECT 1 FROM personne WHERE pseudo = username AND mdp = password) = 1 THEN
 		/* Oui, on crée un nouveau token (max 1 session) */
 		UPDATE personne
 		SET token = hash(rand(), 'md5')
