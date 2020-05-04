@@ -23,17 +23,16 @@
                     <h2>Identification</h2>
                 </header>
 
-                <form action="" method="post">
+                <div id="erreur"></div>
+                <form action="/login" method="post" onsubmit="return connexion(this)">
                     <label for="pseudo">Pseudo :</label>
                     <input type="text" name="pseudo" id="pseudo" placeholder="Nom d'utilisateur" required="required"/>
                     <label for="pswd">Mot de passe :</label>
-                    <input type="password" name="password" id="pswd" placeholder="Mot de passe" required="required"/>
+                    <input type="password" name="mdp" id="pswd" placeholder="Mot de passe" required="required"/>
                     <button type="submit">Connexion</button>
-
                 </form>
             </div>
         </section>
     </div>
-
 </body>
 </html>

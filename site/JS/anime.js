@@ -20,3 +20,17 @@ function genrSelect(obj,id){
     }
     setElem(id,stringHtml);
 }
+
+
+function connexion(form) {
+	let data = new FormData(form);
+
+	fetch('/login?pseudo=' + data.get('pseudo') + '&mdp=' + data.get('mdp'), {
+		method: 'get',
+		// body: 'pseudo=' + data.get('pseudo') + '&mdp=' + data.get('mdp')
+	}).then(r => r.json()).then(data => {
+		console.log(data[0]);
+	});
+
+	return false;
+}
