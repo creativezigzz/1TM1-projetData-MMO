@@ -29,7 +29,17 @@ function connexion(form) {
 		method: 'get',
 		// body: 'pseudo=' + data.get('pseudo') + '&mdp=' + data.get('mdp')
 	}).then(r => r.json()).then(data => {
-		console.log(data[0]);
+		let resultat = refElem('resultat');
+
+		data = data[0];
+		console.log(data);
+		if (data.token === null) {
+			resultat.classList.add('erreur');
+			resultat.innerHTML = "Nom d'utilisateur ou mot de passe incorrect.";
+		} else {
+			resultat.classList.remove('erreur');
+			resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !`;
+		}
 	});
 
 	return false;
