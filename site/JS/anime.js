@@ -23,25 +23,46 @@ function genrSelect(obj,id){
 
 
 function connexion(form) {
-	let data = new FormData(form);
+	let params = new URLSearchParams(new FormData(form));
 
-	fetch('/login?pseudo=' + data.get('pseudo') + '&mdp=' + data.get('mdp'), {
-		method: 'get',
-		// body: 'pseudo=' + data.get('pseudo') + '&mdp=' + data.get('mdp')
-	}).then(r => r.json()).then(data => {
-		let resultat = refElem('resultat');
+	fetch('/login?' + params)
+		.then(r => r.json())
+		.then(data => {
+			let resultat = refElem('resultat');
 
-		data = data[0];
-		console.log(data);
-		if (data.token === null) {
-			resultat.classList.add('erreur');
-			resultat.innerHTML = "Nom d'utilisateur ou mot de passe incorrect.";
-		} else {
-			resultat.classList.remove('erreur');
-			resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !`;
-		}
-		setCookie("token", data.token);
-	});
+			data = data[0];
+			if (data.token === null) {
+				resultat.classList.add('erreur');
+				resultat.innerHTML = "Nom d'utilisateur ou mot de passe incorrect.";
+			} else {
+				resultat.classList.remove('erreur');
+				resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !`;
+			}
+			setCookie("token", data.token);
+		});
+
+	return false;
+}
+
+function inscription(form) {
+	let formdata = new FormData(form);
+	let params = new URLSearchParams(formdata);
+
+	fetch('/add_user?' + params.toString())
+		.then(r => r.json())
+		.then(data => {
+			let resultat = refElem('resultat');
+
+			data = data[0];
+			if (!data.success) {
+				resultat.classList.add('erreur');
+				resultat.innerHTML = "Le nom d'utilisateur existe déjà.";
+			} else {
+				resultat.classList.remove('erreur');
+				resultat.innerHTML = `Bonjour ${formdata.get("prenom")} ${formdata.get("nom")} !`;
+			}
+			setCookie("token", data.token);
+		});
 
 	return false;
 }

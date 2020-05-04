@@ -25,15 +25,16 @@
                 <h2>Inscription</h2>
             </header>
 
-            <form id="sign" action="" method="post">
+            <div id="resultat"></div>
+            <form id="sign" onsubmit="return inscription(this)">
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" name="pseudo" id="pseudo" placeholder="Nom d'utilisateur" required="required"/>
                 <label for="pswd">Mot de passe :</label>
-                <input type="password" name="password" id="pswd" placeholder="Mot de passe" required="required"/>
+                <input type="password" name="nom" id="pswd" placeholder="Mot de passe" required="required"/>
                 <label for="nom">Nom :</label>
-                <input type="text" name="nomU" id="nom" placeholder="Votre nom" required>
+                <input type="text" name="prenom" id="nom" placeholder="Votre nom" required>
                 <label for="prenom">Prenom :</label>
-                <input type="text" name="prenomU" id="prenom" placeholder="Votre prénom" required>
+                <input type="text" name="mdp" id="prenom" placeholder="Votre prénom" required>
                 <button type="submit">Inscription</button>
             </form>
         </div>
