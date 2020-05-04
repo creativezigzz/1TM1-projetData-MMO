@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="CSS/anime.css">
-    <script src="JS/anime.js"></script>
-    <script src="JS/utils.js"></script>
+    <link rel="stylesheet" type="text/css" href="/site/CSS/anime.css">
+    <script src="/site/JS/anime.js"></script>
+    <script src="/site/JS/utils.js"></script>
 </head>
 <body>
     <nav>
-    <a class="ajout" href="form.html">Ajouter un anime</a>
-    <a class="accueil" href="myAnimeList.html">Retour à l'accueil</a>
-    <a class="Inscription" href="inscription.html">Inscription</a>
+    <a class="ajout" href="/site/form.html">Ajouter un anime</a>
+    <a class="accueil" href="/site/myAnimeList.html">Retour à l'accueil</a>
+    <a class="Inscription" href="/site/inscription.html">Inscription</a>
     </nav>
     <div id="wrapper">
         <h1> Connexion </h1>
@@ -23,17 +23,16 @@
                     <h2>Identification</h2>
                 </header>
 
-                <form action="" method="post">
+                <div id="resultat"></div>
+                <form onsubmit="return connexion(this)">
                     <label for="pseudo">Pseudo :</label>
                     <input type="text" name="pseudo" id="pseudo" placeholder="Nom d'utilisateur" required="required"/>
                     <label for="pswd">Mot de passe :</label>
-                    <input type="password" name="password" id="pswd" placeholder="Mot de passe" required="required"/>
+                    <input type="password" name="mdp" id="pswd" placeholder="Mot de passe" required="required"/>
                     <button type="submit">Connexion</button>
-
                 </form>
             </div>
         </section>
     </div>
-
 </body>
 </html>

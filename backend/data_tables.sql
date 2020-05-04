@@ -19,7 +19,7 @@ insert into personne
 (pseudo,nomP,prenomP,mdp)
 values
 ('igzz','Silva','Lucas','kikou'),
-('matWolve','Walravens','Mathieu','koko'),
+('math','Walravens','Mathieu','koko'),
 ('qServais','Servais','Quentin','kiki'),
 ('slime789','Grandjean','Cyril','kuku');
 
