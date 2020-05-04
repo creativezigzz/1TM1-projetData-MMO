@@ -31,6 +31,10 @@ h1 {
 	margin-right: auto;
 }
 
+.erreur{
+	color: red;
+}
+
 form {
 	position: absolute;
 	top: 350px;
