@@ -40,6 +40,7 @@ function connexion(form) {
 			resultat.classList.remove('erreur');
 			resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !`;
 		}
+		setCookie("token", data.token);
 	});
 
 	return false;
