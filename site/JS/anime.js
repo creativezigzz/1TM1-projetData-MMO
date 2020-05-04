@@ -14,9 +14,9 @@ function initForm(){
  * @id {string} id de la page html ou les données iront
  */
 function reponse(obj,id){
-    let stringHtlm = "";
+    let stringHtml = "";
     for(let i of obj){
-        stringHtlm += `<option value="${i.id}">${i.genre}</option>`;// creation des option
+        stringHtml += `<option value="${i.id}">${i.genre}</option>`;// création des options
     }
-    setElem(id,stringHtlm);
+    setElem(id,stringHtml);
 }
