@@ -20,7 +20,7 @@ create service "getAllAnime"
     methods 'get'
     user "DBA"
     url on
-as call get_allAnime()
+as call get_allAnime();
 
 
 /*
@@ -44,4 +44,4 @@ create service "getGenrList"
     methods 'get'
     user "DBA"
     url on
-as call get_genreList()
+as call get_genreList();
