@@ -2,13 +2,10 @@
 creation de la procedure qui renvoie tout anime present dans la base de donnée
 dans un objet json.
 */
-CREATE PROCEDURE get_animeListRatio()
-result(titre char(256),genre char (256), note int)
+CREATE PROCEDURE get_allAnime()
+result(titre char(256))
 BEGIN 
-    select an.titre ,gr.genrNom, sum(li.rating)/count(li.pseudo) from myList as li
-    natural join anime as an
-    natural join genre as gr
-    group by titre, li.animeId,gr.genrNom
+    select titre from anime
     order by titre asc
 end;
 
@@ -16,13 +13,13 @@ end;
 creation du service qui renvoie tout les anime existant dans la base de donée
  et leur ratio dans un objet json.
 */
-create service "getAnimeListRatio"
+create service "getAllAnime"
     type 'JSON'
     authorization off
     methods 'get'
     user "DBA"
     url on
-as call get_animeListRatio()
+as call get_allAnime()
 
 
 /*

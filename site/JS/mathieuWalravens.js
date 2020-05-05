@@ -1,12 +1,10 @@
 "use strict";
 function connexion(form) {
-	let params = new URLSearchParams(new FormData(form));
+	let resultat = refElem('resultat');
 
-	fetch('/login?' + params)
+	fetch('/login?' + getParams(form))
 		.then(r => r.json())
 		.then(data => {
-			let resultat = refElem('resultat');
-
 			data = data[0];
 			if (data.token === null) {
 				resultat.classList.add('erreur');
@@ -16,29 +14,32 @@ function connexion(form) {
 				resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !`;
 			}
 			setCookie("token", data.token);
+		}).catch(err => {
+			resultat.classList.add('erreur');
+			resultat.innerHTML = `Une erreur est survenue: ${err}`;
 		});
 
 	return false;
 }
 
 function inscription(form) {
-	let formdata = new FormData(form);
-	let params = new URLSearchParams(formdata);
+	let resultat = refElem('resultat');
 
-	fetch('/add_user?' + params.toString())
+	fetch('/add_user?' + getParams(form))
 		.then(r => r.json())
 		.then(data => {
-			let resultat = refElem('resultat');
-
 			data = data[0];
 			if (!data.success) {
 				resultat.classList.add('erreur');
-				resultat.innerHTML = "Le nom d'utilisateur existe déjà.";
+				resultat.innerHTML = data.message;
 			} else {
 				resultat.classList.remove('erreur');
-				resultat.innerHTML = `Bonjour ${formdata.get("prenom")} ${formdata.get("nom")} !`;
+				resultat.innerHTML = `Bonjour ${form.prenom.value} ${form.nom.value} !`;
 			}
 			setCookie("token", data.token);
+		}).catch(err => {
+			resultat.classList.add('erreur');
+			resultat.innerHTML = `Une erreur est survenue: ${err}`;
 		});
 
 	return false;
