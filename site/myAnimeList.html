@@ -5,15 +5,17 @@
 	<title>My Anime List</title>
     <link rel="stylesheet" type="text/css" href="/site/CSS/anime.css">
     <script src="/site/JS/anime.js"></script>
+	<script src="/site/JS/myAnimeList2.js"></script>
     <script src="/site/JS/utils.js"></script>
 </head>
-<body>
-	<nav>
-		<a class="ajout" href="/site/form.html">Ajouter un anime</a>
-		<a class="accueil" href="/site/myAnimeList.html">Retour à l'accueil</a>
-		<a class="Connexion" href="/site/connexion.html">Connexion</a>
-		<a class="Inscription" href="/site/inscription.html">Inscription</a>
-	</nav>
+<body onload="initMyAnimeList(getCookie('token'))">
+<nav>
+	<a class="accueil" href="/site/myAnimeList.html">Retour à l'accueil</a>
+	<a class="inscription" href="/site/inscription.html">Inscription</a>
+	<a class="connexion" href="/site/connexion.html">Connexion</a>
+</nav>
+
+<div class="ajout"><a href="/site/form.html">Ajouter un anime</a></div>
 
 	<section id="liste">
 

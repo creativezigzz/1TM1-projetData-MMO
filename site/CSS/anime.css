@@ -1,45 +1,96 @@
 html {
 	font-family: verdana, sans-serif;
 }
-
 body {
 	background: url("../IMG/mal2.png");
 	background-repeat: no-repeat;
 	background-position: top center;
+	background-position-y: 2.5em;
 	background-color: lightgrey;
-
+	position: center;
 }
-
 h1 {
 	text-align: center;
 }
-
-.ajout {
-	position: absolute;
-	top: 300px;
-	left: 990px;
+nav {
+	background-color: rgb(25, 25, 25);
+	border: purple 0.1em solid;
+	position: center;
+	height: 2em;
+	width: 758px;
+	margin-top: 0px;
+	margin: auto;
+}
+a,a:visited,a:active{
+	color: white;
+	font-size: 1.5em;
+	margin: 0em 0.5em 0em 0.5em;
+}
+a:hover{
+	color: purple;
+}
+.inscription{
+	float: right;
+}
+.connexion{
+	float: right;
+}
+.ajout{
+	border: purple 0.1em solid;
+	background-color: rgb(25, 25, 25);
+	text-align: center;
+	position: relative;
+	margin: auto;
+	width: 758px;
+	margin-top: 15.9em;
+	color: white;
+}
+table{
+	margin: auto;
+	margin-top: 0em;
+	border: purple 0.2em solid;
+	background-color: rgb(25, 25, 25);
+	color: white;
+	width: 762px;
+	border-collapse: collapse;
+}
+th{
+	font-weight: bold;
+	border: purple 0.1em solid;
+}
+td{
+	border: purple 0.1em solid;
 }
 
-.accueil {
-	position: absolute;
-	top: 300px;
-	left: 800px;
+div{
+	background-color: rgb(25, 25, 25);
 }
+div#wrapper{
+	text-align: center;
+	border: purple 0.1em solid;
+	margin: auto;
+	margin-top: 15.9em;
+	width: 758px;
+	color: white;
+}
+
+
+
+
 .wrapper{
-	width: 800px;
+	width: 762px;
 	margin-left: auto;
 	margin-right: auto;
+
+	border: purple 0.1em solid;
+	background-color: rgb(25, 25, 25);
 }
 
 .erreur{
 	color: red;
 }
 
-form {
-	position: absolute;
-	top: 350px;
-	left: 800px;
-}
+
 
 label {
 	margin-top:10px;
@@ -52,7 +103,7 @@ input[type=submit] {
 	background: black;
 	color: white;
 	height: 30px;
-	width: 80px;
+	width: auto;
 	font: bold 15px arial, sans-serif;
 	text-shadow:none;
 	border-radius: 5px;

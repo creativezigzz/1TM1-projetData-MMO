@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset=utf-8>
-	<title>My Anime List</title>
-	<link rel="stylesheet" type="text/css" href="/site/CSS/anime.css">
-	<script src="/site/JS/anime.js"></script>
-	<script src="/site/JS/utils.js"></script>
+    <meta charset=utf-8>
+    <title>My Anime List</title>
+    <link rel="stylesheet" type="text/css" href="/site/CSS/anime.css">
+    <script src="/site/JS/anime.js"></script>
+    <script src="/site/JS/utils.js"></script>
 </head>
 <body onload="initForm()">
-	<nav>
-		<a class="ajout" href="/site/form.html">Ajouter un anime</a>
-		<a class="accueil" href="/site/myAnimeList.html">Retour à l'accueil</a>
-		<a class="Connexion" href="/site/connexion.html">Connexion</a>
-		<a class="Inscription" href="/site/inscription.html">Inscription</a>
-	</nav>
-	<form id="formulaire">
-	  <label for="titre">Pseudo:</label>
-	  <input type="text" id="pseudo" name="pseudo"><br>
-	  <label for="password">Mot de passe:</label>
-	  <input type="password" id="password" name="password"><br>
-	  <label for="titre">Titre de l'anime:</label>
-	  <input type="text" id="titre" name="titre"><br>
-	  <label for="titre">Genre:</label>
+<nav>
+    <a class="accueil" href="/site/myAnimeList.html">Retour à l'accueil</a>
+    <a class="inscription" href="/site/inscription.html">Inscription</a>
+    <a class="connexion" href="/site/connexion.html">Connexion</a>
+</nav>
+<div class="ajout">
+    <form id="formulaire">
+        <label for="titre">Pseudo:</label>
+        <input type="text" id="pseudo" name="pseudo"><br>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password"><br>
+        <label for="titre">Titre de l'anime:</label>
+        <input type="text" id="titre" name="titre"><br>
+        <label for="titre">Genre:</label>
         <select id="genre" name="genre"></select>
-	  <label for="note">Notez l'anime:</label>
-		<select id="note" name="notelist" form="formulaire">
-		  <option value="5">5</option>
-		  <option value="4">4</option>
-		  <option value="3">3</option>
-		  <option value="2">2</option>
-		  <option value="1">1</option>
-		</select><br>
-	  <input type="submit" value="Submit">
-	</form>
-
+        <label for="note">Notez l'anime:</label>
+        <select id="note" name="notelist" form="formulaire">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
 </body>
 </html>
