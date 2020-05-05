@@ -17,7 +17,7 @@ h6{
 	font-size: 0.7em;
 	color:black;
 }
-a.discret{
+a.discret,a.discret:visited{
 	font-size: 0.8em;
 	color:black;
 }
