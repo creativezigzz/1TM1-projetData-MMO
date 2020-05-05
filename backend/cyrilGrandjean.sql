@@ -3,9 +3,9 @@ creation de la procedure qui renvoie tout anime present dans la base de donnée
 dans un objet json.
 */
 CREATE PROCEDURE get_allAnime()
-result(titre char(256))
+result(titre char(256), id int)
 BEGIN 
-    select titre from anime
+    select titre, animeId from anime
     order by titre asc
 end;
 
