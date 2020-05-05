@@ -14,18 +14,18 @@ BEGIN
 	RETURN @token;
 END;
 
-CREATE PROCEDURE "DBA"."login"( IN username char(30), IN password char(64) )
+CREATE PROCEDURE "DBA"."login"( IN @pseudo char(30), IN @mdp char(64) )
 RESULT( nom char(30), prenom char(30), token char(32) )
 BEGIN
 	/* Le mot de passe est-il correct ? */
-	IF (SELECT 1 FROM personne WHERE pseudo = username AND mdp = password) = 1 THEN
+	IF (SELECT 1 FROM personne WHERE pseudo = @pseudo AND mdp = @mdp) = 1 THEN
 		/* Oui, on crée un nouveau token (max 1 session) */
 		UPDATE personne
 		SET token = createToken()
-		WHERE pseudo = username;
+		WHERE pseudo = @pseudo;
 
 		/* Et on retourne les infos */
-		SELECT nomP, prenomP, token FROM personne WHERE pseudo = username;
+		SELECT nomP, prenomP, token FROM personne WHERE pseudo = @pseudo;
 	ELSE
 		SELECT null, null, null; /* Non, on retourne NULL */
 	ENDIF;
@@ -37,16 +37,16 @@ CREATE SERVICE "login"
 	USER "DBA"
 	URL ON
 	METHODS 'POST,GET'
-AS call "DBA"."login"(:username, :mdp);
+AS call "DBA"."login"(:pseudo, :mdp);
 
-CREATE PROCEDURE "DBA"."add_user"( IN username char(30), IN nom char(30), IN prenom char(30), IN @mdp char(64) )
+CREATE PROCEDURE "DBA"."add_user"( IN @pseudo char(30), IN nom char(30), IN prenom char(30), IN @mdp char(64) )
 /* Ajoute un nouvel utilisateur dans la base de donnée */
 RESULT( success BOOLEAN, "message" char(60), token char(32)  )
 BEGIN
 	DECLARE @token char(32);
 
 	/* On vérifie que le pseudo est unique. */
-	IF (SELECT 1 FROM personne WHERE pseudo = username) = 1 THEN
+	IF (SELECT 1 FROM personne WHERE pseudo = @pseudo) = 1 THEN
 		SELECT 0, 'Ce pseudo n''est pas disponible.', NULL;
 		RETURN;
 	ENDIF;
@@ -56,7 +56,7 @@ BEGIN
 
 	/* On ajoute la personne à la table personne */
 	INSERT INTO personne VALUES (
-		username,
+		@pseudo,
 		nom,
 		prenom,
 		@mdp,
