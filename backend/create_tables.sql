@@ -3,7 +3,7 @@ create table personne (
     nomP char(30) not null,
     prenomP char(30) not null,
     mdp char(30) not null,
-    token char(32),
+    token char(32) not null,
     CONSTRAINT PK_pseudo PRIMARY KEY (pseudo)
 );
 

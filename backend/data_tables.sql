@@ -18,10 +18,10 @@ values
 insert into personne
 (pseudo,nomP,prenomP,mdp,token)
 values
-('igzz','Silva','Lucas','kikou',createToken()),
-('math','Walravens','Mathieu','koko',createToken()),
-('qServais','Servais','Quentin','kiki',createToken()),
-('slime789','Grandjean','Cyril','kuku',createToken());
+('igzz','Silva','Lucas','kikou',hash(rand(),'md5')),
+('math','Walravens','Mathieu','koko',hash(rand(),'md5')),
+('qServais','Servais','Quentin','kiki',hash(rand(),'md5')),
+('slime789','Grandjean','Cyril','kuku',hash(rand(),'md5'));
 
 insert into anime
 (titre,genrId)
