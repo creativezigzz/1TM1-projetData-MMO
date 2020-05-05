@@ -22,8 +22,8 @@ function renderHTML(data){
 	for(var i in data){
 	liste += "<tr>";
 	liste += "<td>" + data[i].animeNom + "</td>";
-	liste += "<td>" + data[i].genrNom + "</td>";
 	liste += "<td>" + data[i].note + "</td>";
+	liste += "<td>" + data[i].genrNom + "</td>";
 	liste += "</tr>"
   }
 	
