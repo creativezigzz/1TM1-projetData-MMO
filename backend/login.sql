@@ -23,33 +23,27 @@ CREATE SERVICE "login"
 	METHODS 'POST,GET'
 AS call "DBA"."login"(:username, :mdp);
 
-CREATE PROCEDURE "DBA"."add_user"( IN username char(30), IN nom char(30), IN prenom char(30), IN mdp char(64) )
-RESULT( success BOOLEAN, token char(32)  )
+CREATE PROCEDURE "DBA"."add_user"( IN username char(30), IN nom char(30), IN prenom char(30), IN @mdp char(64) )
+RESULT( success BOOLEAN, "message" char(60), token char(32)  )
 BEGIN
 	DECLARE @token char(32);
 
 	IF (SELECT 1 FROM personne WHERE pseudo = username) = 1 THEN
-		SELECT 0, null;
-	ELSE
-		SET @token = hash(rand(), 'md5');
-
-		INSERT INTO personne (
-			pseudo,
-			nomP,
-			prenomP,
-			token,
-			mdp
-		)
-		VALUES (
-			username,
-			nom,
-			prenom,
-			@token,
-			mdp
-		);
-
-		SELECT 1, @token;
+		SELECT 0, 'Ce pseudo n''est pas disponible.', NULL;
+		RETURN;
 	ENDIF;
+
+	SET @token = hash(rand(), 'md5');
+
+	INSERT INTO personne VALUES (
+		username,
+		nom,
+		prenom,
+		@mdp,
+		@token
+	);
+
+	SELECT 1, NULL, @token;
 END;
 
 CREATE SERVICE "add_user"
