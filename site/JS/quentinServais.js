@@ -1,5 +1,4 @@
 function initListe(){
-var box = document.getElementById("liste");
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', '/getAnimeList?token=' + getCookie("token"));
 ourRequest.onload = function (){
@@ -11,6 +10,7 @@ ourRequest.send();
 
 
 function renderHTML(data){
+	var box = document.getElementById("liste");
 	var cols = Object.keys(data[0]);
 	var titre = "<tr>";
 	for(var i in cols){
