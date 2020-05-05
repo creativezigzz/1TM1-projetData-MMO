@@ -81,6 +81,13 @@ div#wrapper{
 	width: 758px;
 	color: white;
 }
+div#content{
+	text-align: center;
+	margin: auto;
+	margin-top: 15.9em;
+	width: 762px;
+	color: white;
+}
 .wrapper{
 	width: 762px;
 	margin-left: auto;

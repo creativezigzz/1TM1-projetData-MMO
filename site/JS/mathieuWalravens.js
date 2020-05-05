@@ -44,3 +44,23 @@ function inscription(form) {
 
 	return false;
 }
+
+function initTop() {
+	let table = refElem('top');
+
+	fetch('/get_top')
+		.then(r => r.json())
+		.then(animes => {
+			table.innerHTML = animes.map(anime =>
+				`<tr>
+					<td>${anime.titre}</td>
+					<td>${anime.genre}</td>
+					<td>${anime.note}</td>
+				</tr>`
+			).join('');
+		}).catch(err => {
+			table.parentNode.outerHTML = `<div class="erreur">Une erreur est survenue: ${err}</div>`;
+		});
+
+	return false;
+}

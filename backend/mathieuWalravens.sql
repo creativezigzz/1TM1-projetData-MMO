@@ -31,6 +31,7 @@ BEGIN
 	ENDIF;
 END;
 
+
 CREATE SERVICE "login"
 	TYPE 'JSON'
 	AUTHORIZATION OFF
@@ -67,6 +68,7 @@ BEGIN
 	SELECT 1, NULL, @token;
 END;
 
+
 CREATE SERVICE "add_user"
 	TYPE 'JSON'
 	AUTHORIZATION OFF
@@ -74,3 +76,23 @@ CREATE SERVICE "add_user"
 	URL ON
 	METHODS 'POST,GET'
 AS call "DBA"."add_user"(:pseudo, :nom, :prenom, :mdp);
+
+
+CREATE PROCEDURE "DBA"."get_top"()
+RESULT( titre char(255), note decimal(8, 2), genre char(50) )
+BEGIN
+	SELECT titre, CAST(avg(li.rating) as decimal(8,2)) as rating, g.genrNom
+	FROM anime AS a
+	JOIN myList AS li ON li.animeId = a.animeId
+	JOIN genre AS g ON g.genrId = a.genrId
+	GROUP BY titre, g.genrNom
+	ORDER BY rating DESC;
+END;
+
+CREATE SERVICE "get_top"
+	TYPE 'JSON'
+	AUTHORIZATION OFF
+	USER "DBA"
+	URL ON
+	METHODS 'GET'
+AS call "DBA"."get_top"();
