@@ -1,6 +1,5 @@
-var box = document.getElementById("liste");
-
 function initListe(){
+var box = document.getElementById("liste");
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', '/getAnimeList?token=' + getCookie("token"));
 ourRequest.onload = function (){
