@@ -52,7 +52,7 @@ values
 ('slime789',5,1),
 ('slime789',6,2),
 ('slime789',8,3),
-('matWolve',8,5),
-('matWolve',6,5),
-('matWolve',2,5),
-('matWolve',1,5);
+('math',8,5),
+('math',6,5),
+('math',2,5),
+('math',1,5);
