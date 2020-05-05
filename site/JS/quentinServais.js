@@ -1,13 +1,14 @@
 var box = document.getElementById("liste");
 var ourRequest = new XMLHttpRequest();
 
+function initListe(){
 ourRequest.open('GET', 'http://localhost/getAnimeList');
 ourRequest.onload = function (){
 	var ourData = JSON.parse(ourRequest.responseText);
 	renderHTML(ourData);
 };
 ourRequest.send();
-
+}
 function renderHTML(data){
 	var str = "";
 	var cols = Object.keys(data[0]);
