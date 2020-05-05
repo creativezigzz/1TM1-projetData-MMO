@@ -92,3 +92,13 @@ function getCookie(nom) {
       return pair[1];
   }
 }
+
+function getParams(form) {
+  let params = [];
+  for (let el of form.elements) {
+    if (el.name != "") {
+      params.push(`${encodeURI(el.name)}=${encodeURI(el.value)}`);
+    }
+  }
+  return params.join('&');
+}
