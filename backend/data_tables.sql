@@ -16,12 +16,12 @@ values
 ('Furyo');
 
 insert into personne
-(pseudo,nomP,prenomP,mdp)
+(pseudo,nomP,prenomP,mdp,token)
 values
-('igzz','Silva','Lucas','kikou'),
-('math','Walravens','Mathieu','koko'),
-('qServais','Servais','Quentin','kiki'),
-('slime789','Grandjean','Cyril','kuku');
+('igzz','Silva','Lucas','kikou',createToken()),
+('math','Walravens','Mathieu','koko',createToken()),
+('qServais','Servais','Quentin','kiki',createToken()),
+('slime789','Grandjean','Cyril','kuku',createToken());
 
 insert into anime
 (titre,genrId)
@@ -56,8 +56,3 @@ values
 ('matWolve',6,5),
 ('matWolve',2,5),
 ('matWolve',1,5);
-
-
-
-
-
