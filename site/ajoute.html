@@ -9,7 +9,7 @@
     <script src="/site/JS/quentinServais.js"></script>
     <script src="/site/JS/utils.js"></script>
 </head>
-<body onload="initForm()">
+<body onload="initAjout()">
 <nav>
     <a class="accueil" href="/site/myAnimeList.html">Retour à l'accueil</a>
     <a class="inscription" href="/site/inscription.html">Inscription</a>
@@ -18,15 +18,10 @@
 <div class="ajout">
     <form id="formulaire">
         <label for="titre">Titre de l'anime:</label>
-        <select id="titre"></select><br>
-        <label for="note">Notez l'anime:</label>
-        <select id="note" name="notelist" form="formulaire">
-            <option value="5">5</option>
-            <option value="4">4</option>
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="1">1</option>
-        </select><br>
+        <input id="titre" type="text" nom="titAnime">
+        <label for="genre">Genre de l'anime:</label>
+        <select id="genre"></select>
+        <br>
         <input type="submit" value="ajouter">
     </form>
 </div>

@@ -5,6 +5,7 @@ dans un objet json.
 CREATE PROCEDURE get_allAnime()
 result(titre char(256), id int)
 BEGIN 
+	Call sa_set_http_header('Access-Control-Allow-Origin', '*');
     select titre, animeId from anime
     order by titre asc
 end;
@@ -28,6 +29,7 @@ creation de la procedure qui ressemble tout les genre que la base de donnée a e
 create procedure get_genreList()/*creation de la procedure get_genreList*/
 result( id integer, genre char(30))/*renvoie un id qui est un nombre et le genre qui est un charactere*/
 begin
+	Call sa_set_http_header('Access-Control-Allow-Origin', '*');
     select * from dba.genre/*selectionne toutes les données de la table genre*/
     order by genrNom ASC /*les trie sur les noms par ordre croissant */
 end;
