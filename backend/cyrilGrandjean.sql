@@ -1,3 +1,7 @@
+/*
+creation de la procedure qui renvoie tout anime present dans la base de donnée
+dans un objet json.
+*/
 CREATE PROCEDURE get_animeListRatio()
 result(titre char(256),genre char (256), note int)
 BEGIN 
@@ -20,6 +24,10 @@ create service "getAnimeListRatio"
     url on
 as call get_animeListRatio()
 
+
+/*
+creation de la procedure qui ressemble tout les genre que la base de donnée a enregistré
+*/
 create procedure get_genreList()/*creation de la procedure get_genreList*/
 result( id integer, genre char(30))/*renvoie un id qui est un nombre et le genre qui est un charactere*/
 begin
