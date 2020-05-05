@@ -44,6 +44,10 @@ BEGIN
 	DECLARE @ext varchar(5);
 	DECLARE @file long varchar;
 
+	IF url is NULL OR url = '' THEN /* Si l'url est vide, on récupère index.html */
+		SET url = 'index.html';
+	END IF;
+
 	SET @ext = getExtension(url); /* On récupère l'extension du fichier */
 	IF @ext is NULL THEN /* Si elle n'existe pas, on suppose que c'est un fichier html */
 		SET url = url || '.html';
@@ -69,4 +73,20 @@ BEGIN
 	SELECT @file; /* On retourne le fichier demandé */
 END;
 
-CREATE SERVICE "site" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call dba.http_getPage(:url);
+CREATE PROCEDURE http_redirect(in url char(255))
+/*
+	Redirige le client à une adresse donnée.
+*/
+BEGIN
+	CALL sa_set_http_header('@HttpStatus', '301');
+	CALL sa_set_http_header('Location', url);
+END;
+
+
+CREATE SERVICE "site"
+	TYPE 'RAW'
+	AUTHORIZATION OFF
+	USER "DBA"
+	URL ON
+	METHODS 'GET'
+AS call dba.http_getPage(:url);
