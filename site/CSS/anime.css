@@ -61,7 +61,6 @@ th{
 td{
 	border: purple 0.1em solid;
 }
-
 div{
 	background-color: rgb(25, 25, 25);
 }
@@ -73,10 +72,6 @@ div#wrapper{
 	width: 758px;
 	color: white;
 }
-
-
-
-
 .wrapper{
 	width: 762px;
 	margin-left: auto;
@@ -85,18 +80,13 @@ div#wrapper{
 	border: purple 0.1em solid;
 	background-color: rgb(25, 25, 25);
 }
-
 .erreur{
 	color: red;
 }
-
-
-
 label {
 	margin-top:10px;
 	display:block;
 }
-
 input[type=submit] {
 	margin-top: 10px;
 	margin-left: 20px;
@@ -107,5 +97,4 @@ input[type=submit] {
 	font: bold 15px arial, sans-serif;
 	text-shadow:none;
 	border-radius: 5px;
-
 }
