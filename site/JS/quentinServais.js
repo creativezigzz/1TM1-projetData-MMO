@@ -2,7 +2,7 @@ var box = document.getElementById("liste");
 
 function initListe(){
 var ourRequest = new XMLHttpRequest();
-ourRequest.open('GET', 'http://localhost/getAnimeList?token=' + getCookie("token"));
+ourRequest.open('GET', '/getAnimeList?token=' + getCookie("token"));
 ourRequest.onload = function (){
 	var ourData = JSON.parse(ourRequest.responseText);
 	renderHTML(ourData);
