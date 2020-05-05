@@ -12,6 +12,15 @@ body {
 h1 {
 	text-align: center;
 }
+h6{
+	margin:0;
+	font-size: 0.7em;
+	color:black;
+}
+a.discret{
+	font-size: 0.8em;
+	color:black;
+}
 nav {
 	background-color: rgb(25, 25, 25);
 	border: purple 0.1em solid;
