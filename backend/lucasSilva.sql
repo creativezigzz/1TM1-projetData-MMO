@@ -19,6 +19,7 @@ BEGIN
         animi,
         note
       );
+      SELECT 1;
     ENDIF
   ELSE SELECT 0;
   ENDIF
