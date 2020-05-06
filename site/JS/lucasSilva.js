@@ -45,7 +45,7 @@ function add_Mylist(form){
             else {
                 resultat.classList.remove('erreur');
                 resultat.innerHTML = `Vous avez noté ${form.titre.value}
-                    avec une note de ${form.notelist.value} <br>`+ `Il a été rajouté à votre liste personnelle d'animés!`
+                    avec une note de ${form.note.value} <br>`+ `Il a été rajouté à votre liste personnelle d'animés!`
             }
         }).catch(err => {
             resultat.classList.add('erreur');
