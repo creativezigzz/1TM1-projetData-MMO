@@ -40,7 +40,7 @@ function verifLog(){
 }
 function verif(obj,id){
     if(obj[0].nom){
-        setElem(id,`<a class="accueil" href="/site/myAnimeList.html">${obj[0].nom}</a><a href="" onclick="setCookie('token','')">Deconexion</a>`);
+        setElem(id,`<a class="accueil" href="/site/myAnimeList.html">${obj[0].nom}</a><a href="/site/connexion.html" onclick="setCookie('token','')">Déconnexion</a>`);
     }else{
         setElem(id,`<a class="inscription" href="/site/inscription.html">Inscription</a>
         <a class="connexion" href="/site/connexion.html">Connexion</a>`);
