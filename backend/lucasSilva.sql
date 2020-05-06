@@ -45,7 +45,7 @@ BEGIN
     INSERT INTO anime (
       titre,
       genrId
-    ) ;
+    );
     VALUES(
       titre,
       gr
