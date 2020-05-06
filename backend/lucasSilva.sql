@@ -5,7 +5,7 @@ RESULT (success BOOLEAN)
 BEGIN
   Call sa_set_http_header('Access-Control-Allow-Origin', '*');
   /*On s'assure que la personne est connectée*/
-  IF((SELECT 1 FROM personne WHERE token != @token) = 1 OR (SELECT 1 from myList natural join personne WHERE myList.animeId=animei AND personne.token=@token) = 1) THEN
+  IF((SELECT 1 FROM personne WHERE token = @token) != 1 OR (SELECT 1 from myList natural join personne WHERE myList.animeId=animei AND personne.token=@token) = 1) THEN
     /*On regarde si l'anime n'est pas déjà dans la liste*/
     SELECT 0;
     RETURN;
