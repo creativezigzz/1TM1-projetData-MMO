@@ -53,7 +53,7 @@ BEGIN
 
     SELECT 1;
   ENDIF;
-END
+END;
 
 CREATE SERVICE "add_anime"
   TYPE 'JSON'
@@ -62,4 +62,3 @@ CREATE SERVICE "add_anime"
   URL ON
   METHODS 'POST,GET'
 AS call "DBA"."add_anime"(:titre,:genre);
-END;
