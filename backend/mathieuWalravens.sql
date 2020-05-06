@@ -37,7 +37,7 @@ CREATE SERVICE "login"
 	AUTHORIZATION OFF
 	USER "DBA"
 	URL ON
-	METHODS 'POST,GET'
+	METHODS 'GET'
 AS call "DBA"."login"(:pseudo, :mdp);
 
 CREATE PROCEDURE "DBA"."add_user"( IN @pseudo char(30), IN nom char(30), IN prenom char(30), IN @mdp char(64) )
@@ -74,7 +74,7 @@ CREATE SERVICE "add_user"
 	AUTHORIZATION OFF
 	USER "DBA"
 	URL ON
-	METHODS 'POST,GET'
+	METHODS 'GET'
 AS call "DBA"."add_user"(:pseudo, :nom, :prenom, :mdp);
 
 
