@@ -4,7 +4,6 @@ CREATE PROCEDURE "DBA"."add_mylist" (IN @token char(32), IN animei integer,IN no
 RESULT (success BOOLEAN)
 BEGIN
   Call sa_set_http_header('Access-Control-Allow-Origin', '*');
-  declare gr char(32);
   /*On s'assure que la personne est connectée*/
   IF((SELECT 1 FROM personne WHERE token = @token ) = 1) THEN
     /*On regarde si l'anime n'est pas déjà dans la liste*/
@@ -12,9 +11,9 @@ BEGIN
     SELECT 0;
     ELSE
       /*On rajoute les donnnées dans la table personnelle;*/
-      SET gr = (SELECT pseudo from personne where token = @token);
+
       INSERT INTO myList VALUES (
-        gr,
+        (SELECT pseudo from personne where token = @token),
         animei,
         note
       );
