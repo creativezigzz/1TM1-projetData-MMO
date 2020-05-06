@@ -6,14 +6,17 @@ function connexion(form) {
 		.then(r => r.json())
 		.then(data => {
 			data = data[0];
+			setCookie("token", data.token);
 			if (data.token === null) {
 				resultat.classList.add('erreur');
 				resultat.innerHTML = "Nom d'utilisateur ou mot de passe incorrect.";
 			} else {
 				resultat.classList.remove('erreur');
-				resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !`;
+				resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !<br>Vous allez être redirigé automatiquement.`;
+				setTimeout(() => {
+					window.location = '/site/myAnimeList.html';
+				}, 2000);
 			}
-			setCookie("token", data.token);
 		}).catch(err => {
 			resultat.classList.add('erreur');
 			resultat.innerHTML = `Une erreur est survenue: ${err}`;
@@ -29,14 +32,17 @@ function inscription(form) {
 		.then(r => r.json())
 		.then(data => {
 			data = data[0];
+			setCookie("token", data.token);
 			if (!data.success) {
 				resultat.classList.add('erreur');
 				resultat.innerHTML = data.message;
 			} else {
 				resultat.classList.remove('erreur');
-				resultat.innerHTML = `Bonjour ${form.prenom.value} ${form.nom.value} !`;
+				resultat.innerHTML = `Bonjour ${form.prenom.value} ${form.nom.value} !<br>Vous allez être redirigé automatiquement.`;
+				setTimeout(() => {
+					window.location = '/site/myAnimeList.html';
+				}, 2000);
 			}
-			setCookie("token", data.token);
 		}).catch(err => {
 			resultat.classList.add('erreur');
 			resultat.innerHTML = `Une erreur est survenue: ${err}`;
