@@ -7,7 +7,7 @@ result(titre char(256), id int)
 BEGIN 
 	Call sa_set_http_header('Access-Control-Allow-Origin', '*');
     select titre, animeId from anime
-    order by titre asc
+    order by titre asc;
 end;
 
 /*
@@ -31,7 +31,7 @@ result( id integer, genre char(30))/*renvoie un id qui est un nombre et le genre
 begin
 	Call sa_set_http_header('Access-Control-Allow-Origin', '*');
     select * from dba.genre/*selectionne toutes les données de la table genre*/
-    order by genrNom ASC /*les trie sur les noms par ordre croissant */
+    order by genrNom ASC; /*les trie sur les noms par ordre croissant */
 end;
 
 /*
@@ -52,7 +52,7 @@ begin
     if((SELECT 1 from personne as p where p.token = @token)=1) THEN 
         select p.pseudo from personne as p where p.token = @token;
     ELSE 
-        select null
+        select null;
     ENDIF;
 end;
 
