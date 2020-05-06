@@ -11,7 +11,6 @@ BEGIN
     SELECT 0;
     ELSE
       /*On rajoute les donnnées dans la table personnelle;*/
-
       INSERT INTO myList VALUES (
         (SELECT pseudo from personne where token = @token),
         animei,
