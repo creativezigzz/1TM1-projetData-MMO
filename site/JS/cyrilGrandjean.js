@@ -34,3 +34,7 @@ function genreSelect(obj,id){
     }
     setElem(id,stringHtml);
 }
+
+function verifLog(){
+
+}
