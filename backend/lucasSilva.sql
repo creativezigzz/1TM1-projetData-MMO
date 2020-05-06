@@ -3,15 +3,26 @@ CREATE PROCEDURE "DBA"."add_mylist" (IN @token char(32), IN animei integer,IN no
 /*Rajouter un nouvel anime dans sa liste personnel*/
 RESULT (success BOOLEAN)
 BEGIN
+  DECLARE hope char(30);
+
   Call sa_set_http_header('Access-Control-Allow-Origin', '*');
   /*On s'assure que la personne est connectée*/
-  IF((SELECT 1 FROM personne WHERE token = @token) != 1 OR (SELECT 1 from myList natural join personne WHERE myList.animeId=animei AND personne.token=@token) = 1) THEN
+
+  IF((SELECT 1 FROM personne WHERE token = @token) != 1) THEN
     /*On regarde si l'anime n'est pas déjà dans la liste*/
     SELECT 0;
     RETURN;
   ENDIF;
+
+  SET hope = (SELECT pseudo from personne where token = @token);
+  IF((SELECT 1 from myList natural join personne WHERE myList.animeId=animei AND personne.token=@token) = 1) THEN
+  UPDATE myList SET rating= note WHERE myList.animeId=animei AND myList.pseudo=hope;
+  SELECT 1;
+  RETURN;
+  ENDIF;
+  
   INSERT INTO myList VALUES (
-    (SELECT pseudo from personne where token = @token),
+    hope,
     animei,
     note
   );
