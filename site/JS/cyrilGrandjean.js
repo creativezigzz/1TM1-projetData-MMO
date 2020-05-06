@@ -39,7 +39,7 @@ function verifLog(){
     xhrReqJson(`/verifLog?token=${getCookie("token")}`,verif,"loginInfo");
 }
 function verif(obj,id){
-    if(obj[0].nom != "false"){
+    if(obj[0].nom){
         setElem(id,`<a class="accueil" href="/site/myAnimeList.html">${obj[0].nom}</a><a href="" onclick="setCookie('token','')">Deconexion</a>`);
     }else{
         setElem(id,`<a class="inscription" href="/site/inscription.html">Inscription</a>
