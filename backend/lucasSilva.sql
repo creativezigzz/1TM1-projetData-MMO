@@ -5,13 +5,13 @@ RESULT (success BOOLEAN)
 BEGIN
   Call sa_set_http_header('Access-Control-Allow-Origin', '*');
 
-  /*On s'assure que la personne est connect�e*/
+  /*On s'assure que la personne est connectée*/
   IF((SELECT 1 FROM personne WHERE token = @token ) = 1) THEN
-    /*On regarde si l'anime n'est pas d�j� dans la liste*/
+    /*On regarde si l'anime n'est pas déjà dans la liste*/
     IF((SELECT 1 from myList natural join anime WHERE anime.titre=titre) = 1 )THEN
     SELECT 0;
     ELSE
-      /*On rajoute les donnn�es dans la table personnelle;*/
+      /*On rajoute les donnnées dans la table personnelle;*/
       INSERT INTO myList VALUES (
         (SELECT pseudo from personne where token = @token),
         (SELECT animId from anime where anime.titre= titre),
