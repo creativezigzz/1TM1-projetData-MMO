@@ -13,4 +13,4 @@ create service "getAnimeList"
     methods 'GET'
     user "DBA"
     url on
-as call get_animeList(:token)
+as call get_animeList(:token);
