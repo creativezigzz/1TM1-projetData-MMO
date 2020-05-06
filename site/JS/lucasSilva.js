@@ -33,7 +33,7 @@ function ajouterAnim(form){
 function add_Mylist(form){
     let resultat = refElem('resultat');
 
-    fetch('/add_mylist?' + getParams(form))
+    fetch('/add_mylist?' +'token=' +getCookie('token')+'&' + getParams(form))
         .then(r => r.json())
         .then(data => {
             data= data[0];

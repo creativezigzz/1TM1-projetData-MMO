@@ -54,6 +54,9 @@ a:hover{
 	margin-top: 15.9em;
 	color: white;
 }
+.form{
+	float: right;
+}
 table{
 	margin: auto;
 	margin-top: 0em;
