@@ -45,3 +45,21 @@ create service "getGenrList"
     user "DBA"
     url on
 as call get_genreList();
+
+create PROCEDURE "DBA"."verifLog"(in @token char(32))
+result (nom char(256))
+begin
+    if((SELECT 1 from personne as p where p.token = @token)=1) THEN 
+        select p.pseudo from personne as p where p.token = @token;
+    ELSE 
+        select 'false'
+    ENDIF;
+end;
+
+create service "verifLog"
+    type 'JSON'
+    authorization off
+    methods 'get'
+    user "DBA"
+    url on
+as call verifLog(:token);
