@@ -88,6 +88,11 @@ div#content{
 	width: 762px;
 	color: white;
 }
+div#loginInfo{
+	width: 20em;
+	float: right;
+
+}
 .wrapper{
 	width: 762px;
 	margin-left: auto;
