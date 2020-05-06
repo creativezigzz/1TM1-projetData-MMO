@@ -8,6 +8,7 @@
     <script src="/site/JS/cyrilGrandjean.js"></script>
     <script src="/site/JS/quentinServais.js"></script>
     <script src="/site/JS/utils.js"></script>
+    <script src="/site/JS/lucasSilva.js"></script>
 </head>
 <body onload="initAjout()">
 <nav>
@@ -16,15 +17,17 @@
     <a class="inscription" href="/site/inscription.html">Inscription</a>
     <a class="connexion" href="/site/connexion.html">Connexion</a>
 </nav>
+<div id="resultat"></div>
 <div class="ajout">
-    <form id="formulaire">
+    <form id="formulaire" onsubmit="return ajouterAnim(this)">
         <label for="titre">Titre de l'anime:</label>
-        <input id="titre" type="text" nom="titAnime">
+        <input id="titre" type="text" name="titAnime">
         <label for="genre">Genre de l'anime:</label>
-        <select id="genre"></select>
+        <select id="genre" name="gender"></select>
         <br>
         <input type="submit" value="ajouter">
     </form>
 </div>
+
 </body>
 </html>
