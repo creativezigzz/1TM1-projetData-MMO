@@ -52,7 +52,7 @@ begin
     if((SELECT 1 from personne as p where p.token = @token)=1) THEN 
         select p.pseudo from personne as p where p.token = @token;
     ELSE 
-        select 'false'
+        select null
     ENDIF;
 end;
 
