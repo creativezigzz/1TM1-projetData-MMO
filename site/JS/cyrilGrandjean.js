@@ -17,8 +17,8 @@ function initAjout(){
  * cette fonction permet de créer le select des genres dans le html.
  * @author cyril grandjean
  *
- * @obj {array} objet qui sera utilisé pour former le select
- * @id {string} id de la page html ou les données iront
+ * @param {array} obj:objet qui sera utilisé pour former le select
+ * @param {string} id:id de la page html ou les données iront
  */
 function titreSelect(obj,id){
     let stringHtml = "";
@@ -31,8 +31,8 @@ function titreSelect(obj,id){
  * cette fonction permet de créer le select des genres dans le html.
  * @author cyril grandjean
  *
- * @obj {array} objet qui sera utilisé pour former le select
- * @id {string} id de la page html ou les données iront
+ * @param {array} obj:objet qui sera utilisé pour former le select
+ * @param {string} id:id de la page html ou les données iront
  */
 function genreSelect(obj,id){
     let stringHtml = "";
@@ -52,8 +52,8 @@ function verifLog(){
  * cette fonction permet de changer les bouton de navigation dans le html en fonction de si al personne est connecter ou non.
  * @author cyril grandjean
  *
- * @obj {array} objet qui sera utilisé pour former le select
- * @id {string} id de la page html ou les données iront
+ * @param {array} obj:objet qui sera utilisé pour former le select
+ * @param {string} id:id de la page html ou les données iront
  */
 function verif(obj,id){
     if(obj[0].nom){
