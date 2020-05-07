@@ -1,15 +1,21 @@
 "use strict";
 /**
  * fonction d'initialisation de la page form.html
+ * @author cyril grandjean
  */
 function initForm(){
     xhrReqJson('/getAllAnime',titreSelect,'titre');
 }
+/**
+ * fonction d'initialisation de la page ajoute.html
+ * @author cyril grandjean
+ */
 function initAjout(){
     xhrReqJson('/getGenrList',genreSelect,'genre');
 }
 /**
  * cette fonction permet de créer le select des genres dans le html.
+ * @author cyril grandjean
  *
  * @obj {array} objet qui sera utilisé pour former le select
  * @id {string} id de la page html ou les données iront
@@ -23,6 +29,7 @@ function titreSelect(obj,id){
 }
 /**
  * cette fonction permet de créer le select des genres dans le html.
+ * @author cyril grandjean
  *
  * @obj {array} objet qui sera utilisé pour former le select
  * @id {string} id de la page html ou les données iront
@@ -34,10 +41,20 @@ function genreSelect(obj,id){
     }
     setElem(id,stringHtml);
 }
-
+/**
+ * cette fonction cree une requette pour demander si le token que la personne posséde existe dans la table.
+ * @author cyril grandjean
+ */
 function verifLog(){
     xhrReqJson(`/verifLog?token=${getCookie("token")}`,verif,"loginInfo");
 }
+/**
+ * cette fonction permet de changer les bouton de navigation dans le html en fonction de si al personne est connecter ou non.
+ * @author cyril grandjean
+ *
+ * @obj {array} objet qui sera utilisé pour former le select
+ * @id {string} id de la page html ou les données iront
+ */
 function verif(obj,id){
     if(obj[0].nom){
         setElem(id,`<a class="accueil" href="/site/myAnimeList.html">${obj[0].nom}</a><a href="/site/connexion.html" onclick="setCookie('token','')">Déconnexion</a>`);
