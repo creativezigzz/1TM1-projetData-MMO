@@ -1,7 +1,10 @@
 "use strict"
+
 /**
-    Fonction pour ajouter un animé à la base de donnée
- **/
+ * Récupère les informations du formulaire @form permettant d'ajouter un animé dans la base de donnée
+ * @param @form : le formulaire en question
+ * @author: Lucas Silva
+ */
 function ajouterAnim(form){
     let resultat= refElem('resultat');
 
@@ -27,7 +30,11 @@ function ajouterAnim(form){
 }
 
 /**
- * Fonction pour ajouter un anime à sa base personnelle et le noter.
+ * Fonction récupère des données d'un formulaire pour ensuite ajouter un anime à sa base personnelle et µ
+ * le noter sur une échelle de 1 à 5.
+ *
+ * @param: @form Le formulaire où l'on rentre les différentes informations
+ * @author Lucas Silva
  **/
 
 function add_Mylist(form){
