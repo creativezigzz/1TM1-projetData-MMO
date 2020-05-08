@@ -15,7 +15,7 @@ function ajouterAnim(form){
             }
             else {
                 resultat.classList.remove('erreur');
-                resultat.innerHTML = `Bonjour ${form.titAnime.value} ${form.gender.value} !`;
+                resultat.innerHTML = `L'anime ${form.titAnime.value} de genre : <br>${form.gender.selectedOptions[0].innerHTML} a été rajouté à notre BDD!`;
             }
 
         }).catch(err => {

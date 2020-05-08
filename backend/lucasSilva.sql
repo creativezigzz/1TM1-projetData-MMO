@@ -20,7 +20,7 @@ BEGIN
   SELECT 1;
   RETURN;
   ENDIF;
-  
+
   INSERT INTO myList VALUES (
     hope,
     animei,
@@ -37,24 +37,23 @@ CREATE SERVICE "add_mylist"
   METHODS 'POST,GET'
 AS call "DBA"."add_mylist"(:token,:titre,:note);
 
-CREATE PROCEDURE "DBA"."add_anime" (IN @titre char(60) ,IN genre char(30))
+CREATE PROCEDURE "DBA"."add_anime" (IN @titre char(60) ,IN @genre integer)
 RESULT (success BOOLEAN)
 BEGIN
 /*On regarde d'abord si l'anim est dans la table */
-  DECLARE gr integer;
-  IF ((SELECT 1 from anime natural join genre WHERE anime.titre = @titre AND  genre.genrNom =genre) = 1) THEN
+  IF ((SELECT 1 from anime WHERE anime.titre = @titre) = 1) THEN
   SELECT 0;
   /*Sinon juste on continue*/
   ELSE
 
-    SET gr = (select genreId from genre where genre.genrNom = genre);
+
     INSERT INTO anime (
       titre,
       genrId
     )
     VALUES(
       @titre,
-      gr
+      @genre
     );
 
     SELECT 1;
