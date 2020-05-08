@@ -5,7 +5,7 @@
 function ajouterAnim(form){
     let resultat= refElem('resultat');
 
-    fetch('/add_anim?' + getParams(form))
+    fetch('/add_anime?' + getParams(form))
         .then(r => r.json())
         .then(data => {
             data = data[0];
@@ -15,7 +15,7 @@ function ajouterAnim(form){
             }
             else {
                 resultat.classList.remove('erreur');
-                resultat.innerHTML = `L'anime ${form.titAnime.value} de genre : <br>${form.gender.selectedOptions[0].innerHTML} a été rajouté à notre BDD!`;
+                resultat.innerHTML = `L'anime ${form.titre.value} de genre : ${form.genre.selectedOptions[0].innerHTML} <br>a été rajouté à notre BDD!`;
             }
 
         }).catch(err => {
