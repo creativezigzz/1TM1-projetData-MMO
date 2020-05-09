@@ -9,6 +9,7 @@ BEGIN
 	de la base de données*/
 	SELECT titre, rating, genrNom FROM genre NATURAL JOIN anime NATURAL JOIN myList NATURAL JOIN personne
     WHERE personne.token = @token
+	ORDER BY titre ASC
 END;
 
 
