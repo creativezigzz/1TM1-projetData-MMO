@@ -7,7 +7,7 @@
  * @param {fonction} fct: fonction qui traitera la reponse
  * @param {string} id: id de la page html ou les données iront se mettre
  */
-function xhrReqJson(url, fct, id){
+function requete(url, fct, id){
     var xhr = new XMLHttpRequest();
     xhr.open('get', url, true);
     xhr.onload =
@@ -22,14 +22,14 @@ function xhrReqJson(url, fct, id){
  * @author cyril grandjean
  */
 function initForm(){
-    xhrReqJson('/getAllAnime',titreSelect,'titre');
+    requete('/getAllAnime',titreSelect,'titre');
 }
 /**
  * fonction d'initialisation de la page ajoute.html
  * @author cyril grandjean
  */
 function initAjout(){
-    xhrReqJson('/getGenrList',genreSelect,'genre');
+    requete('/getGenrList',genreSelect,'genre');
 }
 /**
  * cette fonction permet de créer le select des genres dans le html.
@@ -64,7 +64,7 @@ function genreSelect(obj,id){
  * @author cyril grandjean
  */
 function verifLog(){
-    xhrReqJson(`/verifLog?token=${getCookie("token")}`,verif,"loginInfo");
+    requete(`/verifLog?token=${getCookie("token")}`,verif,"loginInfo");
 }
 /**
  * cette fonction permet de changer les bouton de navigation dans le html en fonction de si la personne est connecter ou non.
