@@ -1,4 +1,5 @@
 "use strict";
+/* auteur : grandjean cyril HE201803*/
 /**
  * cette fonction permet de crée les requêtes vers la base de donnée
  * @author cyril grandjean

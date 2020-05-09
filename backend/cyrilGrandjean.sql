@@ -1,3 +1,5 @@
+
+/* auteur : grandjean cyril HE201803*/
 /*
 creation de la procedure qui renvoie tout anime present dans la base de donnée
 dans un objet json.
