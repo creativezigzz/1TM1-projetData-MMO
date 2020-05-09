@@ -48,34 +48,6 @@ function getClasses(o, nm){
 // au sein de l'objet o
   if (o) { return o.getElementsByClassName(nm); }
 }
-// ===== fonctions XMLHttpRequest
-
-function xhrReqJson(url, fct, id){
-// passe la réponse de la requête ajax demandant la ressource url
-// à la fonction fct pour l'élément id
-  var xhr = new XMLHttpRequest(); // instancier XMLHttpRequest
-  xhr.open('get', url, true);  	  // préparer
-  xhr.onload =                    // callback : fonction anonyme
-    function(){
-      // invoque fct et formate le résultat json pour l'élément id
-      fct(JSON.parse(xhr.responseText), id);
-    }
-  xhr.send()			  // envoyer
-}
-function xhrReqHtml(url, id, fct){
-// place dans l'élément html d'identifiant id
-// la réponse de la requête ajax demandant la ressource url
-  var xhr = new XMLHttpRequest(); // instancier XMLHttpRequest
-  xhr.open('get', url, true);  	  // préparer
-  xhr.onload =                    // callback : fonction anonyme
-    function(){
-      // place la réponse dans l'élément id
-      setElem(id, xhr.responseText);
-      // s'il y a une fonction, l'invoquer
-      if(fct) fct();
-    }
-  xhr.send()			  // envoyer
-}
 
 // met une valeur à un cookie
 function setCookie(nom, valeur) {

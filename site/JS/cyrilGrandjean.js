@@ -1,5 +1,23 @@
 "use strict";
 /**
+ * cette fonction permet de crée les requêtes vers la base de donnée
+ * @author cyril grandjean
+ *
+ * @param {string} url: url du web-service
+ * @param {fonction} fct: fonction qui traitera la reponse
+ * @param {string} id: id de la page html ou les données iront se mettre
+ */
+function xhrReqJson(url, fct, id){
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', url, true);
+    xhr.onload =
+        function(){
+
+            fct(JSON.parse(xhr.responseText), id);
+        }
+    xhr.send()
+}
+/**
  * fonction d'initialisation de la page form.html
  * @author cyril grandjean
  */
@@ -42,14 +60,14 @@ function genreSelect(obj,id){
     setElem(id,stringHtml);
 }
 /**
- * cette fonction cree une requette pour demander si le token que la personne posséde existe dans la table.
+ * cette fonction envoie une requête pour demander si le token que la personne posséde existe dans la table.
  * @author cyril grandjean
  */
 function verifLog(){
     xhrReqJson(`/verifLog?token=${getCookie("token")}`,verif,"loginInfo");
 }
 /**
- * cette fonction permet de changer les bouton de navigation dans le html en fonction de si al personne est connecter ou non.
+ * cette fonction permet de changer les bouton de navigation dans le html en fonction de si la personne est connecter ou non.
  * @author cyril grandjean
  *
  * @param {array} obj:objet qui sera utilisé pour former le select
@@ -57,7 +75,8 @@ function verifLog(){
  */
 function verif(obj,id){
     if(obj[0].nom){
-        setElem(id,`<a class="accueil" href="/site/myAnimeList.html">${obj[0].nom}</a><a href="/site/connexion.html" onclick="setCookie('token','')">Déconnexion</a>`);
+        setElem(id,`<a class="accueil" href="/site/myAnimeList.html">${obj[0].nom}</a>
+        <a href="/site/connexion.html" onclick="setCookie('token','')">Déconnexion</a>`);
     }else{
         setElem(id,`<a class="inscription" href="/site/inscription.html">Inscription</a>
         <a class="connexion" href="/site/connexion.html">Connexion</a>`);
