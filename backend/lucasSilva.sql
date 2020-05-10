@@ -1,6 +1,7 @@
 
 /*
 Procedure permettant de rajouter un nouvel anime dans sa liste personnel
+@author: Lucas Silva HE201892
 */
 
 CREATE PROCEDURE "DBA"."add_mylist" (IN @token char(32), IN animei integer,IN note tinyint)
@@ -33,6 +34,7 @@ BEGIN
 END;
 /*
   On crée le service add_mylist
+  @author: Lucas Silva HE201892
 */
 CREATE SERVICE "add_mylist"
   TYPE 'JSON'
@@ -44,6 +46,7 @@ AS call "DBA"."add_mylist"(:token,:titre,:note);
 
 /*
   Procédure pour ajouter un anime dans la base de donnée général
+  @author: Lucas Silva HE201892
 */
 CREATE PROCEDURE "DBA"."add_anime" (IN @titre char(60) ,IN @genre integer)
 RESULT (success BOOLEAN)
@@ -70,6 +73,7 @@ END;
 
 /*
   Création du service add_anime
+  @author: Lucas Silva HE201892
 */
 CREATE SERVICE "add_anime"
   TYPE 'JSON'

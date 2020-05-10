@@ -3,7 +3,7 @@
 /**
  * Récupère les informations du formulaire @form permettant d'ajouter un animé dans la base de donnée
  * @param @form : le formulaire en question
- * @author: Lucas Silva
+ * @author: Lucas Silva HE201892
  */
 function ajouterAnim(form){
     let resultat= refElem('resultat');
@@ -34,7 +34,7 @@ function ajouterAnim(form){
  * le noter sur une échelle de 1 à 5.
  *
  * @param: @form Le formulaire où l'on rentre les différentes informations
- * @author Lucas Silva
+ * @author Lucas Silva HE201892
  **/
 
 function add_Mylist(form){
