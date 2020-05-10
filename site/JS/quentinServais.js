@@ -1,7 +1,7 @@
 "use strict";
 /**
  * fonction d'initialisation ajax de la liste d'anime qui ira s'ajouter à la page myAnimeList.html
- * @author Quentin Servais 
+ * @author Quentin Servais HE201860
 */
 function initListe(){
 var ourRequest = new XMLHttpRequest();

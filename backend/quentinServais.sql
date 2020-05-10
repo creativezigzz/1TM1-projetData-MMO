@@ -1,3 +1,4 @@
+/* auteur : SERVAIS Quentin HE201860*/
 /*création d' une procedure qui renvoie sur base du token de la personne connecté sa liste d'animé personnelle dans un objet JSON*/
 
 CREATE PROCEDURE get_animeList(IN @token char(32))
