@@ -78,6 +78,10 @@ BEGIN
 END;
 
 CREATE PROCEDURE "DBA"."get_top"()
+/*
+	Renvoie la liste de tous les animes noté avec leur note globale (moyenne).
+	Trié par ordre décroissant sur la note.
+ */
 RESULT( titre char(255), note decimal(8, 2), genre char(50) )
 BEGIN
 	SELECT titre, CAST(avg(li.rating) as decimal(8,2)) as rating, g.genrNom
