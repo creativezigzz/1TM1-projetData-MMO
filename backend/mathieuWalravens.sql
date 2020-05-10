@@ -1,5 +1,14 @@
+/* auteur : étudiant 2 Walravens Mathieu HE201799 */
+
+/*************/
+/* Fonctions */
+/*************/
+
 CREATE FUNCTION createToken()
-/* Génère un nouveau token unique à l'aide des fonctions rand() et hash() */
+/*
+	Génère un nouveau token unique à l'aide des fonctions rand() et hash()
+	Renvoie le token (32 caractères)
+*/
 RETURNS char(32)
 BEGIN
 	DECLARE @token char(32);
@@ -7,14 +16,23 @@ BEGIN
 
 	/* On s'assure que le token est unique */
 	IF (SELECT 1 FROM personne WHERE token = @token) = 1 THEN
-		/* Sinon on le re génère */
+		/* Sinon on le re-génère */
 		SET @token = createToken();
 	ENDIF;
 
 	RETURN @token;
 END;
 
+/**************/
+/* Procédures */
+/**************/
+
 CREATE PROCEDURE "DBA"."login"( IN @pseudo char(30), IN @mdp char(64) )
+/* Connexion d'un utilisateur.
+   Prends en paramètres le pseudo et le mot de passe de l'utilisateur.
+   Renvoie son nom, prénom et un nouveau token si les identifiants sont correct.
+   Renvoie null dans les trois champs dans le cas contraire.
+*/
 RESULT( nom char(30), prenom char(30), token char(32) )
 BEGIN
 	/* Le mot de passe est-il correct ? */
@@ -30,15 +48,6 @@ BEGIN
 		SELECT null, null, null; /* Non, on retourne NULL */
 	ENDIF;
 END;
-
-
-CREATE SERVICE "login"
-	TYPE 'JSON'
-	AUTHORIZATION OFF
-	USER "DBA"
-	URL ON
-	METHODS 'GET'
-AS call "DBA"."login"(:pseudo, :mdp);
 
 CREATE PROCEDURE "DBA"."add_user"( IN @pseudo char(30), IN nom char(30), IN prenom char(30), IN @mdp char(64) )
 /* Ajoute un nouvel utilisateur dans la base de donnée */
@@ -68,16 +77,6 @@ BEGIN
 	SELECT 1, NULL, @token;
 END;
 
-
-CREATE SERVICE "add_user"
-	TYPE 'JSON'
-	AUTHORIZATION OFF
-	USER "DBA"
-	URL ON
-	METHODS 'GET'
-AS call "DBA"."add_user"(:pseudo, :nom, :prenom, :mdp);
-
-
 CREATE PROCEDURE "DBA"."get_top"()
 RESULT( titre char(255), note decimal(8, 2), genre char(50) )
 BEGIN
@@ -89,6 +88,10 @@ BEGIN
 	ORDER BY rating DESC;
 END;
 
+/************/
+/* Services */
+/************/
+
 CREATE SERVICE "get_top"
 	TYPE 'JSON'
 	AUTHORIZATION OFF
@@ -96,3 +99,19 @@ CREATE SERVICE "get_top"
 	URL ON
 	METHODS 'GET'
 AS call "DBA"."get_top"();
+
+CREATE SERVICE "add_user"
+	TYPE 'JSON'
+	AUTHORIZATION OFF
+	USER "DBA"
+	URL ON
+	METHODS 'GET'
+AS call "DBA"."add_user"(:pseudo, :nom, :prenom, :mdp);
+
+CREATE SERVICE "login"
+	TYPE 'JSON'
+	AUTHORIZATION OFF
+	USER "DBA"
+	URL ON
+	METHODS 'GET'
+AS call "DBA"."login"(:pseudo, :mdp);

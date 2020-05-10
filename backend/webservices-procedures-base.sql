@@ -1,6 +1,10 @@
+/*************/
+/* Fonctions */
+/*************/
+
 CREATE FUNCTION getPath()
 /*
-	renvoie le chemin (path) de la racine du site (où est située la base de données)
+	Renvoie le chemin (path) de la racine du site (où est située la base de données)
 	Ce script a été écrit par Mr Christian Lambeau.
 */
 returns long varchar
@@ -34,6 +38,10 @@ BEGIN
 	RETURN RIGHT(filename, @pos - 1); /* On retourne les X derniers caractères */
 END;
 
+
+/**************/
+/* Procédures */
+/**************/
 
 CREATE PROCEDURE http_getPage(in url char(255))
 /*
@@ -82,6 +90,9 @@ BEGIN
 	CALL sa_set_http_header('Location', url);
 END;
 
+/************/
+/* Services */
+/************/
 
 CREATE SERVICE "site"
 	TYPE 'RAW'

@@ -1,4 +1,13 @@
 "use strict";
+
+/* auteur : étudiant 2 Walravens Mathieu HE201799 */
+
+/**
+ * Connecte l'utilisateur à son compte.
+ *
+ * @param {HTMLFormElement} form - Le formulaire de connexion
+ *
+ */
 function connexion(form) {
 	let resultat = refElem('resultat');
 
@@ -25,6 +34,12 @@ function connexion(form) {
 	return false;
 }
 
+/**
+ * Crée un nouveau compte dans la base de donnée.
+ *
+ * @param {HTMLFormElement} form - Le formulaire d'inscription
+ *
+ */
 function inscription(form) {
 	let resultat = refElem('resultat');
 
@@ -51,6 +66,10 @@ function inscription(form) {
 	return false;
 }
 
+/**
+ * Initialise la page d'accueil avec la note moyenne des animes.
+ *
+ */
 function initTop() {
 	let table = refElem('top');
 
