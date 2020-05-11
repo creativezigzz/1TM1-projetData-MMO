@@ -29,3 +29,5 @@ create table myList (
     CONSTRAINT FK_pseudo FOREIGN KEY (pseudo) REFERENCES personne(pseudo),
     CONSTRAINT FK_animeId FOREIGN KEY (animeId) REFERENCES anime(animeId)
 );
+
+CREATE DOMAIN "boolean" BIT NOT NULL DEFAULT 0 check(@col in( 0,1 ) );
