@@ -71,7 +71,7 @@ BEGIN
 	);
 
 	/* On récupère le contenu du fichier */
-	SET @file = xp_read_file(dba.getPath() || '..\\site\\' || url);
+	SET @file = xp_read_file(dba.getPath() || '..\\frontend\\' || url);
 
 	IF @file is NULL THEN /* Si le fichier n'existe pas, il est NULL */
 		/* Donc on retourne le code d'erreur 404 (NotFound) */
