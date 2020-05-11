@@ -2,6 +2,47 @@
 
 /* auteur : étudiant 2 Walravens Mathieu HE201799 */
 
+let resultatTimeout = null;
+
+/**
+ * Affiche un message dans l'élément #resultat.
+ *
+ * @param {string} message - Le message à afficher.
+ * @param {boolean} [error=false] - S'il faut afficher le message en tant qu'erreur ou non.
+ *
+ */
+function showMessage(message, error) {
+	let resultat = refElem('resultat');
+
+	if (error) {
+		resultat.classList.add('erreur');
+	} else {
+		resultat.classList.remove('erreur');
+	}
+
+	resultat.innerHTML = message;
+
+	// Si un timeout est déjà en cours, on le clear
+	if (resultatTimeout !== null)
+		clearTimeout(resultatTimeout);
+
+	// On enlève le message après 3 secondes
+	resultatTimeout = setTimeout(() => {
+		resultatTimeout = null;
+		resultat.innerHTML = "";
+	}, 3000);
+}
+
+/**
+ * Alias pour showMessage(message, true)
+ *
+ * @param {string} message - L'erreur à afficher.
+ *
+ */
+function showError(message) {
+	showMessage(message, true);
+}
+
 /**
  * Connecte l'utilisateur à son compte.
  *
@@ -9,26 +50,21 @@
  *
  */
 function connexion(form) {
-	let resultat = refElem('resultat');
-
 	fetch('/login?' + getParams(form))
 		.then(r => r.json())
 		.then(data => {
 			data = data[0];
 			setCookie("token", data.token);
 			if (data.token === null) {
-				resultat.classList.add('erreur');
-				resultat.innerHTML = "Nom d'utilisateur ou mot de passe incorrect.";
+				showError("Nom d'utilisateur ou mot de passe incorrect.");
 			} else {
-				resultat.classList.remove('erreur');
-				resultat.innerHTML = `Bonjour ${data.prenom} ${data.nom} !<br>Vous allez être redirigé automatiquement.`;
+				showMessage(`Bonjour ${data.prenom} ${data.nom} !<br>Vous allez être redirigé automatiquement.`);
 				setTimeout(() => {
 					window.location = '/site/myAnimeList.html';
 				}, 2000);
 			}
 		}).catch(err => {
-			resultat.classList.add('erreur');
-			resultat.innerHTML = `Une erreur est survenue: ${err}`;
+			showError(`Une erreur est survenue: ${err}`);
 		});
 
 	return false;
@@ -41,7 +77,10 @@ function connexion(form) {
  *
  */
 function inscription(form) {
-	let resultat = refElem('resultat');
+	if (form.pswd.value !== form.pswdConfirm.value) {
+		form.pswdConfirm.setCustomValidity("Les mots de passes ne correspondent pas.");
+		return false;
+	}
 
 	fetch('/add_user?' + getParams(form))
 		.then(r => r.json())
@@ -49,18 +88,15 @@ function inscription(form) {
 			data = data[0];
 			setCookie("token", data.token);
 			if (!data.success) {
-				resultat.classList.add('erreur');
-				resultat.innerHTML = data.message;
+				showError(data.message);
 			} else {
-				resultat.classList.remove('erreur');
-				resultat.innerHTML = `Bonjour ${form.prenom.value} ${form.nom.value} !<br>Vous allez être redirigé automatiquement.`;
+				showMessage(`Bonjour ${form.prenom.value} ${form.nom.value} !<br>Vous allez être redirigé automatiquement.`);
 				setTimeout(() => {
 					window.location = '/site/myAnimeList.html';
 				}, 2000);
 			}
 		}).catch(err => {
-			resultat.classList.add('erreur');
-			resultat.innerHTML = `Une erreur est survenue: ${err}`;
+			showError(`Une erreur est survenue: ${err}`);
 		});
 
 	return false;
