@@ -15,8 +15,8 @@ function requete(url, fct, id){
         function(){
 
             fct(JSON.parse(xhr.responseText), id);
-        }
-    xhr.send()
+        };
+    xhr.send();
 }
 /**
  * fonction d'initialisation de la page form.html
