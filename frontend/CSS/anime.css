@@ -72,6 +72,7 @@ th{
 }
 td{
 	border: purple 0.1em solid;
+	padding-left: 0.2em;
 }
 div{
 	background-color: rgb(25, 25, 25);
