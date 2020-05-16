@@ -53,4 +53,9 @@ BEGIN
 	SELECT 'L''anime est bien supprimer'
 END;
 	
-	
+CREATE SERVICE "remove"
+	TYPE 'JSON'
+	METHODS 'GET'
+	USER "DBA"
+	URL ON
+AS CALL removeAnime(:titre, :token)	
