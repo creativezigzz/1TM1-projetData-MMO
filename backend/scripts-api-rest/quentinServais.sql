@@ -26,7 +26,7 @@ AS CALL get_animeList(:token);
 
 
 CREATE FUNCTION getPers_Id(IN @token char(32))
-RETURN(char(30))
+RETURNS char(30))
 BEGIN
 	DECLARE @pseudo char(30);
 	SET @pseudo = (select p.pseudo
