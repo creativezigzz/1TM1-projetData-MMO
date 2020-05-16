@@ -23,3 +23,33 @@ CREATE SERVICE "getAnimeList"
     USER "DBA"
     URL ON
 AS CALL get_animeList(:token);
+
+
+CREATE FUNCTION getPers_Id(IN @token char(32))
+RETURN(char(30))
+BEGIN
+	DECLARE @pseudo char(30);
+	SET @pseudo = (select p.pseudo
+				   from personne as p
+				   where @token = p.token);
+    RETURN @pseudo;
+END;
+
+ALTER FUNCTION get_Id(IN @titre char(60))
+RETURNS INTEGER
+BEGIN
+    DECLARE removeId INT;
+    SET removeId = (select DBA.anime.animeId
+                    from anime
+                    where @titre = anime.titre);
+    return removeId; 
+END;
+
+CREATE PROCEDURE remove (IN @titre char(60), IN @token char(32))
+RESULT(message char(255))
+BEGIN
+	DELETE FROM myList as li
+	WHERE get_Id(@titre) = li.animeId AND @token = getPers_Id(@token);
+END;
+	
+	
