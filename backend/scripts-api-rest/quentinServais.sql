@@ -26,7 +26,7 @@ AS CALL get_animeList(:token);
 
 
 CREATE FUNCTION getPers_Id(IN @token char(32))
-RETURNS char(30))
+RETURNS char(30)
 BEGIN
 	DECLARE @pseudo char(30);
 	SET @pseudo = (select p.pseudo
@@ -46,10 +46,11 @@ BEGIN
 END;
 
 CREATE PROCEDURE removeAnime(IN @titre char(60), IN @token char(32))
-RESULT(message char(255))
+RESULT(msg char(255))
 BEGIN
 	DELETE FROM myList as li
-	WHERE get_Id(@titre) = li.animeId AND @token = getPers_Id(@token);
+	WHERE get_Id(@titre) = li.animeId AND @token = getPers_Id(@token)
+	SELECT 'L''anime a bien été supprimer'
 END;
 	
 	
