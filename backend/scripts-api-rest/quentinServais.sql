@@ -45,7 +45,7 @@ BEGIN
     return removeId; 
 END;
 
-CREATE PROCEDURE remove (IN @titre char(60), IN @token char(32))
+CREATE PROCEDURE removeAnime(IN @titre char(60), IN @token char(32))
 RESULT(message char(255))
 BEGIN
 	DELETE FROM myList as li
