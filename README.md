@@ -1,6 +1,6 @@
 # 1TM1-projetData-MyAnimList 2019-2020
 ## Présentation de l'équipe
- - **Lucas Silva** @creativezigzz
+ - **Lucas Silva** 
  - **Cyril Grandjean**
  - **Quentin Servais** 
  - **Mathieu Walravens**
@@ -35,7 +35,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 
 ## Détail api rest
 
-- #### **Lucas Silva** :
+- ##### **Lucas Silva** :
     - *add_mylist* 
       - **Paramètres** : Prend comme paramètres un **token** de connexion (cfr token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé dans sa liste perso est envoyé.
       - **Format de réponse** : Fais appelle à la procédure **add_mylist** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
@@ -46,11 +46,11 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
       - **Format de réponse** : Fais appelle à la procédure **add_anime** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
       - **Endpoint** : Si l'animé n'est pas déjà dans la base de donnée commune à tous les utilisateurs, le rajoute et lui donne un genre spécifique(aciton,aventure,...).          
  
-- #### **Cyril Grandjean** :
+- ##### **Cyril Grandjean** :
     
-- #### **Mathieu Walravens** :
+- ##### **Mathieu Walravens** :
  
-- #### **Quentin Servais** :
+- ##### **Quentin Servais** :
 
 ## Détail DB
 
@@ -80,3 +80,8 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
         - **pseudo** : *[PK][FK] [char(30)]* Pseudo unique pour faire le lien avec les différents utilisateurs de la table ***personne***
         - **animeId** : *[PK][FK] [integer]* Identifiant unique d'un animé pour faire le lien avec la table ***anime***
         - **rating** : *[integer]* Note de l'animé en question.
+ ## Références : 
+  Nous nous sommes inspirés pour la mise en forme de l'arborescence et du README des excellents projets de certains de nos camarades de classe ainsi que nos profs :
+  - https://github.com/Youichii/Project-1TM1 
+  - https://github.com/lvdEphec/1T-exemple-projet-final
+  
