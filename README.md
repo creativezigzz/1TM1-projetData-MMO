@@ -77,7 +77,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
     - *remove* 
       - **Paramètres** : Prend comme paramètres un **token** et l'**id** de l'anime à supprimer.
       - **Format de réponse** : Fait appel à la procédure **removeAnime** qui renvoie un message de suppression.
-      - **Endpoint** : Supprime un anime de la liste personnelle de l'utilisateur.
+      - **Endpoint** : Supprime un anime de la liste personnelle de l'utilisateur sur base de son **token** et de l'**id** de l'anime.
 ## Détail DB
 
 - #### Diagramme ER
