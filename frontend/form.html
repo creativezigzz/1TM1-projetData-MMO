@@ -3,19 +3,19 @@
 <head>
     <meta charset=utf-8>
     <title>My Anime List</title>
-    <link rel="stylesheet" type="text/css" href="/frontend/CSS/anime.css">
-    <script src="/frontend/JS/mathieuWalravens.js"></script>
-    <script src="/frontend/JS/cyrilGrandjean.js"></script>
-    <script src="/frontend/JS/quentinServais.js"></script>
-    <script src="/frontend/JS/utils.js"></script>
-    <script src="/frontend/JS/lucasSilva.js"></script>
+    <link rel="stylesheet" type="text/css" href="site/CSS/anime.css">
+    <script src="site/JS/mathieuWalravens.js"></script>
+    <script src="site/JS/cyrilGrandjean.js"></script>
+    <script src="site/JS/quentinServais.js"></script>
+    <script src="site/JS/utils.js"></script>
+    <script src="site/JS/lucasSilva.js"></script>
 </head>
 <body onload="verifLog();initForm()">
 <nav>
-    <a class="accueil" href="/frontend/index.html">Accueil</a>
+    <a class="accueil" href="site/index.html">Accueil</a>
     <div id="loginInfo">
-        <a class="inscription" href="/frontend/inscription.html">Inscription</a>
-        <a class="connexion" href="/frontend/connexion.html">Connexion</a>
+        <a class="inscription" href="site/inscription.html">Inscription</a>
+        <a class="connexion" href="site/connexion.html">Connexion</a>
     </div>
 </nav>
 
@@ -24,7 +24,7 @@
     <form id="formulaire" onsubmit="return add_Mylist(this)">
         <label for="titre">Titre de l'anime:</label>
         <select id="titre" name="titre"></select><br>
-        <h6>pas dans la liste? <a class="discret" href="/frontend/ajoute.html">Ajouter un anime dans la mémoire</a>.</h6>
+        <h6>pas dans la liste? <a class="discret" href="site/ajoute.html">Ajouter un anime dans la mémoire</a>.</h6>
         <label for="note">Notez l'anime:</label>
         <select id="note" name="note" form="formulaire">
             <option value="5">5</option>
