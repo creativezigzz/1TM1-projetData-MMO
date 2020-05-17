@@ -80,6 +80,7 @@ function suppression(form){
 	supprime.onload = function(){
 		var del	= supprime.responseText;
 		document.getElementById("resultat").innerHTML = del;
+		document.getElementById("field").classList.add("hidden");
 		initListe();
 	};
 	supprime.send();
