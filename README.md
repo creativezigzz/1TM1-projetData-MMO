@@ -1,40 +1,25 @@
 # 1TM1-projetData-MyAnimList 2019-2020
 ## Présentation de l'équipe
- - **Lucas Silva** 
+ - **Lucas Silva** @creativezigzz
  - **Cyril Grandjean**
  - **Quentin Servais** 
  - **Mathieu Walravens**
 ## Description du projet
-Le site sera présenté comme un catalogue de nom d’animés.
-Les utilisateurs auront la possibilité de créer un profil via un premier formulaire avec un nom, prénom, mot de
-passe et un pseudo unique leur permettant de se connecter.
-Dès le compte créé chaque utilisateur pourra rechercher dans le catalogue d’animés pour y selectionner ceux qu’il
-aura déjà vu.
-Les animés seront classés par genre pour permettre aux utilisateurs de découvrir des animés semblable à ceux
-qu’ils regardent déjà. Ils pourront ensuite notés les différents animés de leur liste personnelle sur une échelle allant
-de 1 à 5.
-Chaque animé aura droit à la moyenne de tous les avis des utilisateurs l’ayant visionné pour pouvoir faire un classement des meilleurs animés.
-Si jamais il venait à manquer un animé dans le catalogue, les utilisateurs auront la possibilité d’en rajouter un via
-un second formulaire en spécifiant son nom et son genre.
+
 ###### BESOIN DU CLIENT
   
-Notre site MyAnimeList permet à un utilisateur de tenir à jour sa liste personnelle des différents animés qu'ils regardent pour lui donner une note.
-
-
-
+Notre site MyAnimeList permet à un utilisateur de tenir à jour sa liste personnelle des différents animés 
+qu'il regarde et de le noter.
 
 ###### FONCTIONNALITÉS PRINCIPALES
   - Une page pour ajouter un animé dans sa liste et lui donner une note. L'anime garde la dernière note .
   - Une page pour ajouter un animé dans la base de donnée au cas où il n'y serait pas déjà.
   
-    
-
 ###### FONCTIONNALITÉS SECONDAIRES
-    
-  - Une page d'accueil permettant de s'inscrire ou de se connecter sur le site. On y voit tous les animés avec la moyenne des notes de chacun des utilisateurs. Triée par note de la plus haute à la plus basse.
+
+  - Une page d'accueil permettant de voir tous les animés avec la moyenne des notes de chacun des utilisateurs. Triée par note de la plus haute à la plus basse.
   - Un profil privé accessible uniquement au "propriétaire" du compte, lui permettant de voir et de modifier son AnimeList.
-  - Une page listant tous les profils inscrits sur le site, et permettant d'accéder directement à leur profil public via un boutton.
-    
+  - Une page de **connexion**  et d'**inscription** permettant respectivement de se connecter au site et de s'inscrire.
 
 ## Aspects implémentés
 La liste des aspects techniques qu'il faut implémenter pour mettre en place le projet, en séparant les aspects backend (base de données, procédures SQL, webservices, serveur de fichiers) et les aspects frontend (html, css, js, page web et fonctionnalités à proposer aux utilisateurs);
@@ -69,9 +54,9 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 
 ## Détail DB
 
-- ####Diagramme 
+- ####Diagramme ER
  
-![](utile/images/diagramme_LI.jpg)
+     ![Diagrame ER](utile/images/diagramme.png)
 
 - #### Tables
     - ***genre*** : Contient les différents genre disponible
