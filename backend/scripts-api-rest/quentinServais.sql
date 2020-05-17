@@ -35,7 +35,7 @@ BEGIN
     RETURN @pseudo;
 END;
 
-ALTER FUNCTION get_Id(IN @titre char(60))
+CREATE FUNCTION get_Id(IN @titre char(60))
 RETURNS INTEGER
 BEGIN
     DECLARE removeId INT;
@@ -49,7 +49,7 @@ CREATE PROCEDURE removeAnime(IN @titre char(60), IN @token char(32))
 RESULT(msg char(255))
 BEGIN
 	DELETE FROM myList as li
-	WHERE get_Id(@titre) = li.animeId AND li.pseudo = getPers_Id(@token)
+	WHERE get_Id(@titre) = li.animeId AND li.pseudo = getPers_Id(@token);
 	SELECT 'L''anime est bien supprimer'
 END;
 	
