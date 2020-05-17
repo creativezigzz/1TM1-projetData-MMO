@@ -71,8 +71,8 @@ BEGIN
 END;
 
 CREATE SERVICE "remove"
-	TYPE 'JSON'
+	TYPE 'RAW'
 	METHODS 'GET'
 	USER "DBA"
 	URL ON
-AS CALL removeAnime(:titre, :token);
+AS CALL removeAnime(:id, :token);
