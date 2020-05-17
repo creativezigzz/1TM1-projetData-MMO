@@ -140,9 +140,9 @@ function initTop() {
 		.then(animes => {
 			table.innerHTML = animes.map(anime =>
 				`<tr>
+					<td>${anime.note}</td>
 					<td>${anime.titre}</td>
 					<td>${anime.genre}</td>
-					<td>${anime.note}</td>
 				</tr>`
 			).join('');
 		}).catch(err => {
