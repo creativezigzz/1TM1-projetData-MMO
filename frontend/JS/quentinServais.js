@@ -42,10 +42,6 @@ function renderHTML(data){
 }
 
 function addField(){
-	var container = document.getElementById(field);
-	container.innerHTML = 	<form>
-							<label for="toRemove">Anime à supprimer:</label><br>
-							<input type="text" id="toRemove" name="toRemove"><br>
-							<input type="submit" value="Submit">
-							</form>;
+	var container = document.getElementById("field");
+	container.innerHTML = 	'<form><label for="toRemove">Anime à supprimer:</label><br><input type="text" id="toRemove" name="toRemove"><br><input type="submit" value="Submit"></form>';
 }
