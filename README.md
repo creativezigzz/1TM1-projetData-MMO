@@ -9,7 +9,7 @@
 ###### BESOIN DU CLIENT
   
 Notre site MyAnimeList permet à un utilisateur de tenir à jour sa liste personnelle des différents animés 
-qu'il regarde et de le noter.
+qu'il regarde et de les noter.
 
 ###### FONCTIONNALITÉS PRINCIPALES
   - Une page pour ajouter un animé dans sa liste et lui donner une note. L'anime garde la dernière note .
@@ -38,23 +38,23 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 - ##### **Lucas Silva** :
     - *add_mylist* 
       - **Paramètres** : Prend comme paramètres un **token** de connexion (cfr token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé dans sa liste perso est envoyé.
-      - **Format de réponse** : Fais appelle à la procédure **add_mylist** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
+      - **Format de réponse** : Fait appel à la procédure **add_mylist** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
       - **Endpoint** : Si l'animé n'est pas déjà dans la liste personnelle de l'utilisateur, le rajoute et lui donne une note entre 1 et 5 compris. Sinon change la note de l'animé déjà présent par la note la plus récente.
     
     - *add_anime* 
       - **Paramètres** : Prend comme paramètres un **titre** qui est un char(60) étant le titre de l'animé et un **genre** qui est un id unique dans la table *genre*. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé est lancé.
-      - **Format de réponse** : Fais appelle à la procédure **add_anime** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
+      - **Format de réponse** : Fait appel à la procédure **add_anime** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
       - **Endpoint** : Si l'animé n'est pas déjà dans la base de donnée commune à tous les utilisateurs, le rajoute et lui donne un genre spécifique(aciton,aventure,...).          
  
 - ##### **Cyril Grandjean** :
     - *getAllAnime* 
-      - **Paramètres** : Ne possède pas de paramètre.
-      - **Format de réponse** : Fait appelle à la procédure get_allAnime qui renvoie un objet JSON.
+      - **Paramètres** : Ne possède pas de paramètres.
+      - **Format de réponse** : Fait appel à la procédure get_allAnime qui renvoie un objet JSON.
       - **Endpoint** : Rassemble tout les animés de la base de donnée et les trie par ordre alphabétique.
     	  
     - *getGenrList* 
-      - **Paramètres** : Ne possède pas de paramètre.
-      - **Format de réponse** : Fais appelle à la procédure get_genreList qui renvoie un objet JSON.
+      - **Paramètres** : Ne possède pas de paramètres.
+      - **Format de réponse** : Fait appel à la procédure get_genreList qui renvoie un objet JSON.
       - **Endpoint** : Rassemble tout les genres de la base de donnée et les trie par ordre alphabétique.
     	  
     - *verifLog* 
@@ -64,7 +64,20 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 - ##### **Mathieu Walravens** :
  
 - ##### **Quentin Servais** :
-
+    - *getTitre* 
+      - **Paramètres** : Prend comme paramètre un **token** de type CHAR qui est l'id unique de chaque personne connectée sur le site.
+      - **Format de réponse** : Fait appel à la procédure **get_titre** qui renvoie le **titre** ainsi que l'**id** de l'anime concerné sous forme d'objet JSON.
+      - **Endpoint** : Sélectionne le titre et l'id des animes dans la liste de la personne connectée.
+    
+    - *getAnimeList* 
+      - **Paramètres** : Prend comme paramètre un **token** qui est l'id unique de chaque personne connectée sur le site.
+      - **Format de réponse** : Fait appel à la procédure **get_animeList** qui renvoie le **titre**, la **note** et le **genre** sous forme d'objet JSON.
+      - **Endpoint** : Sélectionne et trie par ordre alphabétique le **titre**, la **note** et le **genre** des animes présents dans la liste de la personne identifiée grâce au token.
+    
+    - *remove* 
+      - **Paramètres** : Prend comme paramètres un **token** et l'**id** de l'anime à supprimer.
+      - **Format de réponse** : Fait appel à la procédure **removeAnime** qui renvoie un message de suppression.
+      - **Endpoint** : Supprime un anime de la liste personnelle de l'utilisateur.
 ## Détail DB
 
 - #### Diagramme ER
