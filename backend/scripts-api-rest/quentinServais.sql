@@ -60,23 +60,13 @@ BEGIN
     RETURN @pseudo;
 END;
 
-/*création d'une fonction qui prend un titre en parametre et qui retourne l'Id de l'anime a supprimer*/
-CREATE FUNCTION get_Id(IN @titre char(60))
-RETURNS INTEGER
-BEGIN
-    DECLARE removeId INT;
-    SET removeId = (select DBA.anime.animeId
-                    from anime
-                    where @titre = anime.titre);
-    return removeId;
-END;
 
 /*création d'une procédure qui supprime un anime dans sa liste personnelle qui prend en parametres le titre de l'anime et le token de la personne concernée*/
-CREATE PROCEDURE removeAnime(IN @titre char(60), IN @token char(32))
+CREATE PROCEDURE removeAnime(IN @id TINYINT, IN @token char(32))
 RESULT(msg char(255))
 BEGIN
 	DELETE FROM myList as li
-	WHERE get_Id(@titre) = li.animeId AND li.pseudo = getPers_Id(@token);
+	WHERE @id = li.animeId AND li.pseudo = getPers_Id(@token);
 	SELECT 'L''anime est bien supprimer'
 END;
 
