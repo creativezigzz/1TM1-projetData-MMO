@@ -1,6 +1,6 @@
 create table personne (
     pseudo char(30) not null,
-    nomP char(30) not null,
+    nomP char(60) not null,
     prenomP char(30) not null,
     mdp char(30) not null,
     token char(32) not null,

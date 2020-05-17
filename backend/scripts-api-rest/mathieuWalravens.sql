@@ -33,7 +33,7 @@ CREATE PROCEDURE "DBA"."login"( IN @pseudo char(30), IN @mdp char(64) )
    Renvoie son nom, prénom et un nouveau token si les identifiants sont correct.
    Renvoie null dans les trois champs dans le cas contraire.
 */
-RESULT( nom char(30), prenom char(30), token char(32) )
+RESULT( nom char(60), prenom char(30), token char(32) )
 BEGIN
 	/* Le mot de passe est-il correct ? */
 	IF (SELECT 1 FROM personne WHERE pseudo = @pseudo AND mdp = @mdp) = 1 THEN
@@ -49,7 +49,7 @@ BEGIN
 	ENDIF;
 END;
 
-CREATE PROCEDURE "DBA"."add_user"( IN @pseudo char(30), IN nom char(30), IN prenom char(30), IN @mdp char(64) )
+CREATE PROCEDURE "DBA"."add_user"( IN @pseudo char(30), IN nom char(60), IN prenom char(30), IN @mdp char(64) )
 /* Ajoute un nouvel utilisateur dans la base de donnée */
 RESULT( success BOOLEAN, "message" char(60), token char(32)  )
 BEGIN

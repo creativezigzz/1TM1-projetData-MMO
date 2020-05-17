@@ -104,7 +104,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
       - **genrNom** : *[char(30)]* Nom du genre ;
 
   -  ***personne*** : Contient tous les utilisateurs ainsi que leurs informations de connexion et profil.
-      - **pseudo** : *[PK] [char(30)]* Pseudo unique permettant d'identifier un utilisateur.
+      - **pseudo** : *[PK] [char(60)]* Pseudo unique permettant d'identifier un utilisateur.
       - **nomP** : *[char(30)]* Nom de l'utilisateur ;
       - **prenomP** : *[char(30)]* Prénom de l'utilisateur ;
       - **mdp** : *[char(30)]* Mot de passe de l'utilisateur utilisé pour se connecter ;
