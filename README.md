@@ -54,14 +54,14 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 
 ## Détail DB
 
-- ####Diagramme ER
+- #### Diagramme ER
  
      ![Diagrame ER](utile/images/diagramme.png)
 
 - #### Tables
     - ***genre*** : Contient les différents genre disponible
-        - **genrId** : [PK][integer] Représente l'identifiant d'un genre particulier ;
-        - **genrNom** : [char(30)] Nom du genre ;
+        - **genrId** : *[PK][integer]* Représente l'identifiant d'un genre particulier ;
+        - **genrNom** : *[char(30)]* Nom du genre ;
     
     -  ***personne*** : Contient tous les utilisateurs ainsi que leurs informations de connexion et profil.
         - **pseudo** : *[PK] [char(30)]* Pseudo unique permettant d'identifier un utilisateur. 
