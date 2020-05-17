@@ -11,29 +11,27 @@
     <script src="/site/JS/lucasSilva.js"></script>
 </head>
 <body onload="verifLog();initForm()">
-<nav>
-    <a class="accueil" href="/site/index.html">Accueil</a>
-    <div id="loginInfo">
+    <nav>
+        <a class="accueil" href="/site/index.html">Accueil</a>
+        <div id="loginInfo"></div>
+    </nav>
+    <img id="banner" src="IMG/mal2.png">
+    <div id="content" class="ajout">
+        <div id="resultat"> </div>
+        <form id="formulaire" onsubmit="return add_Mylist(this)">
+            <label for="titre">Titre de l'anime :</label>
+            <select id="titre" name="titre"></select><br>
+            <label for="note">Note :</label>
+            <select id="note" name="note" form="formulaire">
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select><br>
+            <input type="submit" value="Noter">
+            <h6>Pas dans la liste ? <a class="discret" href="/site/ajoute.html">Ajouter un anime dans la base de donnée</a></h6>
+        </form>
     </div>
-</nav>
-
-<div class="ajout">
-    <div id="resultat"> </div>
-    <form id="formulaire" onsubmit="return add_Mylist(this)">
-        <label for="titre">Titre de l'anime:</label>
-        <select id="titre" name="titre"></select><br>
-        <h6>pas dans la liste? <a class="discret" href="/site/ajoute.html">Ajouter un anime dans la mémoire</a>.</h6>
-        <label for="note">Notez l'anime:</label>
-        <select id="note" name="note" form="formulaire">
-            <option value="5">5</option>
-            <option value="4">4</option>
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="1">1</option>
-        </select><br>
-        <input type="submit" value="ajouter">
-    </form>
-</div>
-
 </body>
 </html>
