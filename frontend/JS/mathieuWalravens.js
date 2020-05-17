@@ -1,11 +1,12 @@
 "use strict";
 
-/* auteur : étudiant 2 Walravens Mathieu HE201799 */
+/* auteur : Walravens Mathieu HE201799 */
 
 let resultatTimeout = null;
 
 /**
  * Affiche un message dans l'élément #resultat.
+ * @author Mathieu Walravens
  *
  * @param {string} message - Le message à afficher.
  * @param {boolean} [error=false] - S'il faut afficher le message en tant qu'erreur ou non.
@@ -35,6 +36,7 @@ function showMessage(message, error) {
 
 /**
  * Alias pour showMessage(message, true)
+ * @author Mathieu Walravens
  *
  * @param {string} message - L'erreur à afficher.
  *
@@ -45,8 +47,11 @@ function showError(message) {
 
 /**
  * Connecte l'utilisateur à son compte.
+ * @author Mathieu Walravens
  *
  * @param {HTMLFormElement} form - Le formulaire de connexion
+ *
+ * @return {Boolean} false
  *
  */
 function connexion(form) {
@@ -72,16 +77,14 @@ function connexion(form) {
 
 /**
  * Crée un nouveau compte dans la base de donnée.
+ * @author Mathieu Walravens
  *
  * @param {HTMLFormElement} form - Le formulaire d'inscription
  *
+ * @return {Boolean} false
+ *
  */
 function inscription(form) {
-	if (form.pswd.value !== form.pswdConfirm.value) {
-		form.pswdConfirm.setCustomValidity("Les mots de passes ne correspondent pas.");
-		return false;
-	}
-
 	fetch('/add_user?' + getParams(form))
 		.then(r => r.json())
 		.then(data => {
@@ -103,7 +106,30 @@ function inscription(form) {
 }
 
 /**
+ * Vérifie si la confirmation du mot de passe est correcte.
+ * @author Mathieu Walravens
+ *
+ * @return {Boolean} true si les mots de passes sont identiques
+ *
+ */
+function checkPswd() {
+	let pswd = refElem('pswd');
+	let pswdConfirm = refElem('pswdConfirm');
+
+	if (pswd.value == pswdConfirm.value) {
+		pswdConfirm.setCustomValidity("");
+		return true;
+	}
+
+	pswdConfirm.setCustomValidity("Les mots de passes ne correspondent pas.");
+	return false;
+}
+
+/**
  * Initialise la page d'accueil avec la note moyenne des animes.
+ * @author Mathieu Walravens
+ *
+ * @return {Boolean} false
  *
  */
 function initTop() {
