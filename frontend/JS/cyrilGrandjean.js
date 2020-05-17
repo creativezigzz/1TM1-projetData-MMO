@@ -13,7 +13,6 @@ function requete(url, fct, id){
     xhr.open('get', url, true);
     xhr.onload =
         function(){
-
             fct(JSON.parse(xhr.responseText), id);
         };
     xhr.send();
