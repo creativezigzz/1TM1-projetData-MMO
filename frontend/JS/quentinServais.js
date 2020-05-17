@@ -8,7 +8,9 @@ function initListe(){
 	ourRequest.open('GET', '/getAnimeList?token=' + getCookie("token"));
 	ourRequest.onload = function (){
 		var ourData = JSON.parse(ourRequest.responseText);
-		renderHTML(ourData);
+		if(ourData.length > 0){
+			renderHTML(ourData);
+		}
 	};
 	ourRequest.send();
 }
@@ -78,6 +80,7 @@ function suppression(form){
 		initListe();
 	};
 	supprime.send();
+	return false;
 }
 /**
  * fonction qui créé les options de la liste déroulante de suppression
