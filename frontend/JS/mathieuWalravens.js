@@ -60,7 +60,7 @@ function connexion(form) {
 			} else {
 				showMessage(`Bonjour ${data.prenom} ${data.nom} !<br>Vous allez être redirigé automatiquement.`);
 				setTimeout(() => {
-					window.location = '/site/myAnimeList.html';
+					window.location = '/frontend/myAnimeList.html';
 				}, 2000);
 			}
 		}).catch(err => {
@@ -92,7 +92,7 @@ function inscription(form) {
 			} else {
 				showMessage(`Bonjour ${form.prenom.value} ${form.nom.value} !<br>Vous allez être redirigé automatiquement.`);
 				setTimeout(() => {
-					window.location = '/site/myAnimeList.html';
+					window.location = '/frontend/myAnimeList.html';
 				}, 2000);
 			}
 		}).catch(err => {
