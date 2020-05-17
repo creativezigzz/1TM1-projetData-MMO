@@ -40,3 +40,12 @@ function renderHTML(data){
   var table = "<table>" + titre + liste + "</table>";	
   box.innerHTML = table; //position du tableau dans le html
 }
+
+function addField(){
+	var container = document.getElementById(field);
+	container.innerHTML = 	<form>
+							<label for="toRemove">Anime à supprimer:</label><br>
+							<input type="text" id="toRemove" name="toRemove"><br>
+							<input type="submit" value="Submit">
+							</form>;
+}
