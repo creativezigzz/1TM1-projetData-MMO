@@ -1,11 +1,12 @@
 "use strict";
 
-/* auteur : étudiant 2 Walravens Mathieu HE201799 */
+/* auteur : Walravens Mathieu HE201799 */
 
 let resultatTimeout = null;
 
 /**
  * Affiche un message dans l'élément #resultat.
+ * @author Mathieu Walravens
  *
  * @param {string} message - Le message à afficher.
  * @param {boolean} [error=false] - S'il faut afficher le message en tant qu'erreur ou non.
@@ -35,6 +36,7 @@ function showMessage(message, error) {
 
 /**
  * Alias pour showMessage(message, true)
+ * @author Mathieu Walravens
  *
  * @param {string} message - L'erreur à afficher.
  *
@@ -45,6 +47,7 @@ function showError(message) {
 
 /**
  * Connecte l'utilisateur à son compte.
+ * @author Mathieu Walravens
  *
  * @param {HTMLFormElement} form - Le formulaire de connexion
  *
@@ -72,6 +75,7 @@ function connexion(form) {
 
 /**
  * Crée un nouveau compte dans la base de donnée.
+ * @author Mathieu Walravens
  *
  * @param {HTMLFormElement} form - Le formulaire d'inscription
  *
@@ -104,6 +108,7 @@ function inscription(form) {
 
 /**
  * Initialise la page d'accueil avec la note moyenne des animes.
+ * @author Mathieu Walravens
  *
  */
 function initTop() {

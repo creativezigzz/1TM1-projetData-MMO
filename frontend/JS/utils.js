@@ -54,7 +54,14 @@ function setCookie(nom, valeur) {
   document.cookie = `${nom}=${valeur}`;
 }
 
-// récupère une valeur dans les cookies
+/**
+ * Récupère une valeur dans les cookies.
+ * @author Mathieu Walravens
+ *
+ * @param {String} nom - le nom du cookie
+ * @return {String} la valeur du cookie. Peut retourner undefined.
+ *
+ */
 function getCookie(nom) {
   let cookies = document.cookie.split(';');
 
@@ -65,6 +72,14 @@ function getCookie(nom) {
   }
 }
 
+/**
+ * Encode les champs d'un formulaire sous forme de paramètres prêt à être envoyé à une requête GET.
+ * @author Mathieu Walravens
+ *
+ * @param {HTMLFormElement} form - Le formulaire
+ * @return {String} les paramètres encodés spéraré par des '&'.
+ *
+ */
 function getParams(form) {
   let params = [];
   for (let el of form.elements) {
