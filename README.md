@@ -37,7 +37,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 
 - #### **Lucas Silva** :
     - *add_mylist* 
-      - **Paramètres** : Prend comme paramètres un **token** de connexion (cfr create_token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé dans sa liste perso est envoyé.
+      - **Paramètres** : Prend comme paramètres un **token** de connexion (cfr token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé dans sa liste perso est envoyé.
       - **Format de réponse** : Fais appelle à la procédure **add_mylist** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
       - **Endpoint** : Si l'animé n'est pas déjà dans la liste personnelle de l'utilisateur, le rajoute et lui donne une note entre 1 et 5 compris. Sinon change la note de l'animé déjà présent par la note la plus récente.
     
@@ -68,7 +68,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
         - **nomP** : *[char(30)]* Nom de l'utilisateur ;
         - **prenomP** : *[char(30)]* Prénom de l'utilisateur ;
         - **mdp** : *[char(30)]* Mot de passe de l'utilisateur utilisé pour se connecter ;
-        - **token** : *[char(30)]* Token de session unique donné lors de la connextion 
+        - **token** : *[char(32)]* Token de session unique donné lors de la connextion 
         permettant à l'utilisateur de ne pas devoir se connecter à chaque fois et de récupérer ses données plus facilement.
     
     - ***anime*** : Contient tous les animes présents sur le site
