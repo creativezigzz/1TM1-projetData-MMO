@@ -61,6 +61,7 @@ a.discret,a.discret:visited{
 	color:grey;
 }
 a,a:visited,a:active{
+	cursor: pointer;
 	color: white;
 	font-size: 1.5em;
 	margin: 0 0.5em 0 0.5em;
