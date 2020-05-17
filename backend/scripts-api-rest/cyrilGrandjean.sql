@@ -48,6 +48,10 @@ create service "getGenrList"
     url on
 as call get_genreList();
 
+/*
+creation de la procédure qui verifie si la perssonne est bien connecter.
+elle prend comme parametre le token de la personne.
+*/
 create PROCEDURE "DBA"."verifLog"(in @token char(32))
 result (nom char(256))
 begin
@@ -57,7 +61,10 @@ begin
         select null;
     ENDIF;
 end;
-
+/*
+creation du service qui renvoie le pseudo ou la valeur null
+dans un objet json.
+*/
 create service "verifLog"
     type 'JSON'
     authorization off

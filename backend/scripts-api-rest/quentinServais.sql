@@ -34,10 +34,6 @@ CREATE SERVICE "getTitre"
 		URL ON
 AS CALL get_titre(:token);
 
-
-
-
-
 /*création d' un service qui retourne tout les animés correspondant au token de la personne connectée*/
 
 CREATE SERVICE "getAnimeList"
@@ -62,16 +58,19 @@ END;
 
 
 /*création d'une procédure qui supprime un anime dans sa liste personnelle qui prend en parametres le titre de l'anime et le token de la personne concernée*/
+
 CREATE PROCEDURE removeAnime(IN @id TINYINT, IN @token char(32))
 RESULT(msg char(255))
 BEGIN
 	DELETE FROM myList as li
 	WHERE @id = li.animeId AND li.pseudo = getPers_Id(@token);
-	SELECT 'L''anime est bien supprimer'
+	SELECT 'L''anime est bien supprimer';
 END;
+
 
 CREATE SERVICE "remove"
 	TYPE 'RAW'
+	AUTHORIZATION OFF
 	METHODS 'GET'
 	USER "DBA"
 	URL ON
