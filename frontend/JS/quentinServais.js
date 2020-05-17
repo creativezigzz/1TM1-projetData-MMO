@@ -53,14 +53,24 @@ suppRequest.send();
 
 function addField(){
     var container = document.getElementById("field");
-    container.innerHTML =     '<form><label for="selectTitre">Anime à supprimer:</label><br><select id="selectTitre"></select><br><input type="submit" value="Submit"></form>';
+    container.innerHTML =     '<form onsubmit="suppression(this);"><label for="selectTitre">Anime à supprimer:</label><br><select id="selectTitre" name="select"></select><br><input type="submit" value="Submit"></form>';
 		initSuppr();
+}
+
+function suppression(form){
+	var supprime = new XMLHttpRequest();
+	supprime.open('GET', '/remove?id=' + form.select +'&token=' + getCookie("token"));
+	supprime.onload = function(){
+	var del	= supprime.responseText;
+	document.getElementById("field").innerHTML = del;
+};
+supprime.send();
 }
 
 function addSelect(obj){
 	var container = document.getElementById("selectTitre");
 	var strHTML = "";
-	for(let i in obj){
+	for(let i of obj){
 		strHTML += `<option value="${i.id}">${i.anime}</option>`;
 	}
 	container.innerHTML = strHTML;
