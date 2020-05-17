@@ -10,10 +10,9 @@ function initListe(){
 		var ourData = JSON.parse(ourRequest.responseText);
 		if(ourData.length > 0){
 			renderHTML(ourData);
-		}
-		else {
+		} else {
   		document.getElementById("liste").innerHTML = "";
-}
+		}
 
 	};
 	ourRequest.send();
