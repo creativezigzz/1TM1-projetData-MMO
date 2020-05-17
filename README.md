@@ -5,36 +5,21 @@
  - **Quentin Servais** 
  - **Mathieu Walravens**
 ## Description du projet
-Le site sera présenté comme un catalogue de nom d’animés.
-Les utilisateurs auront la possibilité de créer un profil via un premier formulaire avec un nom, prénom, mot de
-passe et un pseudo unique leur permettant de se connecter.
-Dès le compte créé chaque utilisateur pourra rechercher dans le catalogue d’animés pour y selectionner ceux qu’il
-aura déjà vu.
-Les animés seront classés par genre pour permettre aux utilisateurs de découvrir des animés semblable à ceux
-qu’ils regardent déjà. Ils pourront ensuite notés les différents animés de leur liste personnelle sur une échelle allant
-de 1 à 5.
-Chaque animé aura droit à la moyenne de tous les avis des utilisateurs l’ayant visionné pour pouvoir faire un classement des meilleurs animés.
-Si jamais il venait à manquer un animé dans le catalogue, les utilisateurs auront la possibilité d’en rajouter un via
-un second formulaire en spécifiant son nom et son genre.
+
 ###### BESOIN DU CLIENT
   
-Notre site MyAnimeList permet à un utilisateur de tenir à jour sa liste personnelle des différents animés qu'ils regardent pour lui donner une note.
-
-
-
+Notre site MyAnimeList permet à un utilisateur de tenir à jour sa liste personnelle des différents animés 
+qu'il regarde et de le noter.
 
 ###### FONCTIONNALITÉS PRINCIPALES
   - Une page pour ajouter un animé dans sa liste et lui donner une note. L'anime garde la dernière note .
   - Une page pour ajouter un animé dans la base de donnée au cas où il n'y serait pas déjà.
   
-    
-
 ###### FONCTIONNALITÉS SECONDAIRES
-    
-  - Une page d'accueil permettant de s'inscrire ou de se connecter sur le site. On y voit tous les animés avec la moyenne des notes de chacun des utilisateurs. Triée par note de la plus haute à la plus basse.
+
+  - Une page d'accueil permettant de voir tous les animés avec la moyenne des notes de chacun des utilisateurs. Triée par note de la plus haute à la plus basse.
   - Un profil privé accessible uniquement au "propriétaire" du compte, lui permettant de voir et de modifier son AnimeList.
-  - Une page listant tous les profils inscrits sur le site, et permettant d'accéder directement à leur profil public via un boutton.
-    
+  - Une page de **connexion**  et d'**inscription** permettant respectivement de se connecter au site et de s'inscrire.
 
 ## Aspects implémentés
 La liste des aspects techniques qu'il faut implémenter pour mettre en place le projet, en séparant les aspects backend (base de données, procédures SQL, webservices, serveur de fichiers) et les aspects frontend (html, css, js, page web et fonctionnalités à proposer aux utilisateurs);
@@ -50,7 +35,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 
 ## Détail api rest
 
-- #### **Lucas Silva** :
+- ##### **Lucas Silva** :
     - *add_mylist* 
       - **Paramètres** : Prend comme paramètres un **token** de connexion (cfr create_token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé dans sa liste perso est envoyé.
       - **Format de réponse** : Fais appelle à la procédure **add_mylist** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
@@ -61,20 +46,42 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
       - **Format de réponse** : Fais appelle à la procédure **add_anime** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
       - **Endpoint** : Si l'animé n'est pas déjà dans la base de donnée commune à tous les utilisateurs, le rajoute et lui donne un genre spécifique(aciton,aventure,...).          
  
-- #### **Cyril Grandjean** :
+- ##### **Cyril Grandjean** :
     
-- #### **Mathieu Walravens** :
+- ##### **Mathieu Walravens** :
  
-- #### **Quentin Servais** :
+- ##### **Quentin Servais** :
 
 ## Détail DB
 
-- ####Diagramme 
+- #### Diagramme ER
  
-![](utile/images/diagramme_LI.jpg)
+     ![Diagrame ER](utile/images/diagramme.png)
 
 - #### Tables
-- *table genre(DBA)* : Contient les différents genre disponible
-    - **genreId** : 
-   
-
+    - ***genre*** : Contient les différents genre disponible
+        - **genrId** : *[PK][integer]* Représente l'identifiant d'un genre particulier ;
+        - **genrNom** : *[char(30)]* Nom du genre ;
+    
+    -  ***personne*** : Contient tous les utilisateurs ainsi que leurs informations de connexion et profil.
+        - **pseudo** : *[PK] [char(30)]* Pseudo unique permettant d'identifier un utilisateur. 
+        - **nomP** : *[char(30)]* Nom de l'utilisateur ;
+        - **prenomP** : *[char(30)]* Prénom de l'utilisateur ;
+        - **mdp** : *[char(30)]* Mot de passe de l'utilisateur utilisé pour se connecter ;
+        - **token** : *[char(30)]* Token de session unique donné lors de la connextion 
+        permettant à l'utilisateur de ne pas devoir se connecter à chaque fois et de récupérer ses données plus facilement.
+    
+    - ***anime*** : Contient tous les animes présents sur le site
+        - **animeId** : *[PK] [integer]* Représente l'identifiant d'un animé particulier  
+        - **genrId** : *[FK] [integer]* Clé étrangère permettant de faire le lien avec la table ***genre***.
+        - **titre** : *[char(60)]* Titre de l'animé
+    
+    - ***myList*** : Contient toutes les notes attribuées par chaque utilisateur et pour chaque animé. (1 note pour 1 utilisateur ET 1 animé)  
+        - **pseudo** : *[PK][FK] [char(30)]* Pseudo unique pour faire le lien avec les différents utilisateurs de la table ***personne***
+        - **animeId** : *[PK][FK] [integer]* Identifiant unique d'un animé pour faire le lien avec la table ***anime***
+        - **rating** : *[integer]* Note de l'animé en question.
+ ## Références : 
+  Nous nous sommes inspirés pour la mise en forme de l'arborescence et du README des excellents projets de certains de nos camarades de classe ainsi que nos profs :
+  - https://github.com/Youichii/Project-1TM1 
+  - https://github.com/lvdEphec/1T-exemple-projet-final
+  

@@ -1,8 +1,0 @@
-Webservices :
-	loggin Sevices de connections à la base de données.
-	getlist Services pour voir la liste des animés
-	getname Service pour rechercher un anime 
-	getGenre Avoir les animés du même genre.
-	getTop avoir la liste classé par notes
-	addamin Ajouter un anim
-	addUser ajouter un nouvel utilisateur
