@@ -51,6 +51,8 @@ function showError(message) {
  *
  * @param {HTMLFormElement} form - Le formulaire de connexion
  *
+ * @return {Boolean} false
+ *
  */
 function connexion(form) {
 	fetch('/login?' + getParams(form))
@@ -79,13 +81,10 @@ function connexion(form) {
  *
  * @param {HTMLFormElement} form - Le formulaire d'inscription
  *
+ * @return {Boolean} false
+ *
  */
 function inscription(form) {
-	if (form.pswd.value !== form.pswdConfirm.value) {
-		form.pswdConfirm.setCustomValidity("Les mots de passes ne correspondent pas.");
-		return false;
-	}
-
 	fetch('/add_user?' + getParams(form))
 		.then(r => r.json())
 		.then(data => {
@@ -107,8 +106,30 @@ function inscription(form) {
 }
 
 /**
+ * Vérifie si la confirmation du mot de passe est correcte.
+ * @author Mathieu Walravens
+ *
+ * @return {Boolean} true si les mots de passes sont identiques
+ *
+ */
+function checkPswd() {
+	let pswd = refElem('pswd');
+	let pswdConfirm = refElem('pswdConfirm');
+
+	if (pswd.value == pswdConfirm.value) {
+		pswdConfirm.setCustomValidity("");
+		return true;
+	}
+
+	pswdConfirm.setCustomValidity("Les mots de passes ne correspondent pas.");
+	return false;
+}
+
+/**
  * Initialise la page d'accueil avec la note moyenne des animes.
  * @author Mathieu Walravens
+ *
+ * @return {Boolean} false
  *
  */
 function initTop() {

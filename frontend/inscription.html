@@ -27,9 +27,9 @@
                 <label for="pseudo">Pseudo :</label>
                 <input type="text" name="pseudo" id="pseudo" placeholder="Nom d'utilisateur" required="required"/>
                 <label for="pswd">Mot de passe :</label>
-                <input type="password" name="mdp" id="pswd" placeholder="Mot de passe" required="required"/>
+                <input type="password" name="mdp" id="pswd" placeholder="Mot de passe" onchange="checkPswd();" required="required"/>
                 <label for="pswdconfirm">Confirmer le mot de passe :</label>
-                <input type="password" name="mdp" id="pswdConfirm" placeholder="Mot de passe" required="required"/>
+                <input type="password" id="pswdConfirm" placeholder="Mot de passe" required="required" oninput="checkPswd();" />
                 <label for="nom">Nom :</label>
                 <input type="text" name="nom" id="nom" placeholder="Votre nom" required>
                 <label for="prenom">Prénom :</label>
