@@ -42,11 +42,13 @@ input[type=submit] {
 	cursor: pointer;
 }
 input {
+	margin: 1px;
 	padding: 2px;
 	border: 2px purple solid;
 	border-radius: 2px;
 }
 input:focus {
+	margin: 0;
 	outline: none;
 	border: 3px purple solid;
 	border-radius: 3px;
