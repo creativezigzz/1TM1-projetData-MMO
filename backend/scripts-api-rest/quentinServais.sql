@@ -20,10 +20,10 @@ BEGIN
 	CALL sa_set_http_header('Access-Control-Allow-Origin', '*');
     /*retourne les infos si le token de la personne connectée correspond au token enregistré dans la table personne
 	de la base de données*/
-	SELECT titre, animeId
-	FROM anime NATURAL JOIN personne
+	SELECT titre, anime.animeId
+  FROM myList NATURAL JOIN personne NATURAL JOIN anime
   WHERE personne.token = @token
-	ORDER BY titre ASC
+	ORDER BY titre ASC;
 END;
 
 CREATE SERVICE "getTitre"
