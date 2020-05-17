@@ -67,7 +67,14 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
  
 - #### **Quentin Servais** :
 
-# Détail DB
+## Détail DB
+
+- ####Diagramme 
+ 
 ![](utile/images/diagramme_LI.jpg)
 
+- #### Tables
+- *table genre(DBA)* : Contient les différents genre disponible
+    - **genreId** : 
+   
 
