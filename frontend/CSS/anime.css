@@ -38,6 +38,15 @@ a,a:visited,a:active{
 a:hover{
 	color: purple;
 }
+.remove, #field{
+	border: purple 0.1em solid;
+	background-color: rgb(25, 25, 25);
+	text-align: center;
+	position: relative;
+	margin: auto;
+	width: 758px;
+	color: white;
+}
 .inscription{
 	float: right;
 }
