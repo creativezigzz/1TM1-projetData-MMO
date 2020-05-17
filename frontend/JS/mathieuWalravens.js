@@ -1,6 +1,6 @@
 "use strict";
 
-/* auteur : Walravens Mathieu HE201799 */
+/* auteur : WALRAVENS Mathieu HE201799 */
 
 let resultatTimeout = null;
 

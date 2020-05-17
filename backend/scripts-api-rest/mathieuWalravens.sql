@@ -1,4 +1,4 @@
-/* auteur : étudiant 2 Walravens Mathieu HE201799 */
+/* auteur : WALRAVENS Mathieu HE201799 */
 
 /*************/
 /* Fonctions */
