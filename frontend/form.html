@@ -12,10 +12,8 @@
 </head>
 <body onload="verifLog();initForm()">
 <nav>
-    <a class="accueil" href="site/index.html">Accueil</a>
+    <a class="accueil" href="/site?url=index">Accueil</a>
     <div id="loginInfo">
-        <a class="inscription" href="site/inscription.html">Inscription</a>
-        <a class="connexion" href="site/connexion.html">Connexion</a>
     </div>
 </nav>
 
@@ -24,7 +22,7 @@
     <form id="formulaire" onsubmit="return add_Mylist(this)">
         <label for="titre">Titre de l'anime:</label>
         <select id="titre" name="titre"></select><br>
-        <h6>pas dans la liste? <a class="discret" href="site/ajoute.html">Ajouter un anime dans la mémoire</a>.</h6>
+        <h6>pas dans la liste? <a class="discret" href="/site?url=ajoute">Ajouter un anime dans la mémoire</a>.</h6>
         <label for="note">Notez l'anime:</label>
         <select id="note" name="note" form="formulaire">
             <option value="5">5</option>
