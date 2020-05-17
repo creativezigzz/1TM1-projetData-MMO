@@ -62,7 +62,7 @@ function initSuppr(){
 */
 function addField(){
     var container = document.getElementById("field");
-  	container.innerHTML = '<form onsubmit="suppression(this);"><label for="selectTitre">Anime à supprimer:</label><br><select id="selectTitre" name="select"></select><br><input type="submit" value="Submit"></form>';
+  	container.classList.toggle('hidden');
 		initSuppr();
 }
 /**
