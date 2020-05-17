@@ -81,7 +81,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
         - **animeId** : *[PK][FK] [integer]* Identifiant unique d'un animé pour faire le lien avec la table ***anime***
         - **rating** : *[integer]* Note de l'animé en question.
  ## Références : 
-  Nous nous sommes inspirés pour la mise en forme de l'arborescence et du README des excellents projets de certains de nos partenaires ainsi que nos profs :
+  Nous nous sommes inspirés pour la mise en forme de l'arborescence et du README des excellents projets de certains de nos camarades de classe ainsi que nos profs :
   - https://github.com/Youichii/Project-1TM1 
   - https://github.com/lvdEphec/1T-exemple-projet-final
   
