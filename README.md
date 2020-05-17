@@ -47,7 +47,20 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
       - **Endpoint** : Si l'animé n'est pas déjà dans la base de donnée commune à tous les utilisateurs, le rajoute et lui donne un genre spécifique(aciton,aventure,...).          
  
 - ##### **Cyril Grandjean** :
-    
+    - *getAllAnime* 
+      - **Paramètres** : Ne possède pas de paramètre.
+      - **Format de réponse** : Fait appelle à la procédure get_allAnime qui renvoie un objet JSON.
+      - **Endpoint** : Rassemble tout les animés de la base de donnée et les trie par ordre alphabétique.
+    	  
+    - *getGenrList* 
+      - **Paramètres** : Ne possède pas de paramètre.
+      - **Format de réponse** : Fais appelle à la procédure get_genreList qui renvoie un objet JSON.
+      - **Endpoint** : Rassemble tout les genres de la base de donnée et les trie par ordre alphabétique.
+    	  
+    - *verifLog* 
+      - **Paramètres** : Prend comme paramètre le token de la personne connecter.
+      - **Format de réponse** : renvoie le pseudo de la personne connectée ou la valeur null.
+      - **Endpoint** : si la personne est connectée, renvoie le pseudo. si la personne n'est pas connectée, renvoie la valeur null.
 - ##### **Mathieu Walravens** :
  
 - ##### **Quentin Servais** :
