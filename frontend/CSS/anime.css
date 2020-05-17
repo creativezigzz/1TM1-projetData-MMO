@@ -38,7 +38,7 @@ a,a:visited,a:active{
 a:hover{
 	color: purple;
 }
-.remove, #field{
+#field{
 	border: purple 0.1em solid;
 	background-color: rgb(25, 25, 25);
 	text-align: center;
