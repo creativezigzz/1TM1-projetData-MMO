@@ -30,7 +30,7 @@ label {
 label[for=note] {
 	display: inline;
 }
-input[type=submit] {
+form input[type=submit] {
 	margin: 10px auto;
 	background: black;
 	color: white;
