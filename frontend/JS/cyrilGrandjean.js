@@ -76,10 +76,10 @@ function verifLog(){
  */
 function verif(obj,id){
     if(obj[0].nom){
-        setElem(id,`<a class="accueil" href="/site?url=myAnimeList">${obj[0].nom}</a>
-        <a href="/site?url=connexion" onclick="setCookie('token','')">Déconnexion</a>`);
+        setElem(id,`<a class="accueil" href="/site/myAnimeList.html">${obj[0].nom}</a>
+        <a href="/site/connexion.html" onclick="setCookie('token','')">Déconnexion</a>`);
     }else{
-        setElem(id,`<a class="inscription" href="/site?url=inscription">Inscription</a>
-        <a class="connexion" href="/site?url=connexion">Connexion</a>`);
+        setElem(id,`<a class="inscription" href="/site/inscription.html">Inscription</a>
+        <a class="connexion" href="/site/connexion.html">Connexion</a>`);
     }
 }
