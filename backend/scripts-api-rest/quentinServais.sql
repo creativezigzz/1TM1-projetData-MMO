@@ -24,6 +24,7 @@ CREATE SERVICE "getAnimeList"
     URL ON
 AS CALL get_animeList(:token);
 
+/*création d'une fonction qui retourne un pseudo en fonction de la personne connectée*/
 
 CREATE FUNCTION getPers_Id(IN @token char(32))
 RETURNS char(30)
@@ -35,6 +36,7 @@ BEGIN
     RETURN @pseudo;
 END;
 
+/*création d'une fonction qui prend un titre en parametre et qui retourne l'Id de l'anime a supprimer*/
 CREATE FUNCTION get_Id(IN @titre char(60))
 RETURNS INTEGER
 BEGIN
@@ -45,6 +47,7 @@ BEGIN
     return removeId; 
 END;
 
+/*création d'une procédure qui supprime un anime dans sa liste personnelle qui prend en parametres le titre de l'anime et le token de la personne concernée*/
 CREATE PROCEDURE removeAnime(IN @titre char(60), IN @token char(32))
 RESULT(msg char(255))
 BEGIN
@@ -58,4 +61,4 @@ CREATE SERVICE "remove"
 	METHODS 'GET'
 	USER "DBA"
 	URL ON
-AS CALL removeAnime(:titre, :token)	
+AS CALL removeAnime(:titre, :token);	
