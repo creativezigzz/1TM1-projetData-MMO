@@ -74,7 +74,24 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 ![](utile/images/diagramme_LI.jpg)
 
 - #### Tables
-- *table genre(DBA)* : Contient les différents genre disponible
-    - **genreId** : 
-   
-
+    - ***genre*** : Contient les différents genre disponible
+        - **genrId** : [PK][integer] Représente l'identifiant d'un genre particulier ;
+        - **genrNom** : [char(30)] Nom du genre ;
+    
+    -  ***personne*** : Contient tous les utilisateurs ainsi que leurs informations de connexion et profil.
+        - **pseudo** : *[PK] [char(30)]* Pseudo unique permettant d'identifier un utilisateur. 
+        - **nomP** : *[char(30)]* Nom de l'utilisateur ;
+        - **prenomP** : *[char(30)]* Prénom de l'utilisateur ;
+        - **mdp** : *[char(30)]* Mot de passe de l'utilisateur utilisé pour se connecter ;
+        - **token** : *[char(30)]* Token de session unique donné lors de la connextion 
+        permettant à l'utilisateur de ne pas devoir se connecter à chaque fois et de récupérer ses données plus facilement.
+    
+    - ***anime*** : Contient tous les animes présents sur le site
+        - **animeId** : *[PK] [integer]* Représente l'identifiant d'un animé particulier  
+        - **genrId** : *[FK] [integer]* Clé étrangère permettant de faire le lien avec la table ***genre***.
+        - **titre** : *[char(60)]* Titre de l'animé
+    
+    - ***myList*** : Contient toutes les notes attribuées par chaque utilisateur et pour chaque animé. (1 note pour 1 utilisateur ET 1 animé)  
+        - **pseudo** : *[PK][FK] [char(30)]* Pseudo unique pour faire le lien avec les différents utilisateurs de la table ***personne***
+        - **animeId** : *[PK][FK] [integer]* Identifiant unique d'un animé pour faire le lien avec la table ***anime***
+        - **rating** : *[integer]* Note de l'animé en question.
