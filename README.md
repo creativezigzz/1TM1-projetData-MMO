@@ -5,6 +5,17 @@
  - **Quentin Servais** 
  - **Mathieu Walravens**
 ## Description du projet
+Le site sera présenté comme un catalogue de nom d’animés.
+Les utilisateurs auront la possibilité de créer un profil via un premier formulaire avec un nom, prénom, mot de
+passe et un pseudo unique leur permettant de se connecter.
+Dès le compte créé chaque utilisateur pourra rechercher dans le catalogue d’animés pour y selectionner ceux qu’il
+aura déjà vu.
+Les animés seront classés par genre pour permettre aux utilisateurs de découvrir des animés semblable à ceux
+qu’ils regardent déjà. Ils pourront ensuite notés les différents animés de leur liste personnelle sur une échelle allant
+de 1 à 5.
+Chaque animé aura droit à la moyenne de tous les avis des utilisateurs l’ayant visionné pour pouvoir faire un classement des meilleurs animés.
+Si jamais il venait à manquer un animé dans le catalogue, les utilisateurs auront la possibilité d’en rajouter un via
+un second formulaire en spécifiant son nom et son genre.
 ###### BESOIN DU CLIENT
   
 Notre site MyAnimeList permet à un utilisateur de tenir à jour sa liste personnelle des différents animés qu'ils regardent pour lui donner une note.
@@ -40,17 +51,18 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 ## Détail api rest
 
 - **Lucas Silva** :
-    - Nom_du_Service : 
-      - Paramètres :
-      - Format de réponse :
-      - Endpoint :
+    - Nom_du_Service : add_mylist 
+      - Paramètres : Prend comme paramètres un **token** de connexion (cfr create_token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé est lancé.
+      - Format de réponse : Fais appelle à la procédure **add_mylsit** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
+      - Endpoint : Si l'animé n'est pas déjà dans la liste personnelle de l'utilisateur, le rajoute et lui donne une note entre 1 et 5 compris. Sinon change la note de l'animé déjà présent par la note la plus récente.
+      
  
 - **Cyril Grandjean** :
     
 - **Mathieu Walravens** :
  
 - **Quentin Servais** :
-  
+
 # Détail DB
 ![](utile/images/diagramme_LI.jpg)
 
