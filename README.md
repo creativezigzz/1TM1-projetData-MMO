@@ -50,18 +50,22 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
 
 ## Détail api rest
 
-- **Lucas Silva** :
-    -add_mylist 
-      - Paramètres : Prend comme paramètres un **token** de connexion (cfr create_token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé est lancé.
-      - Format de réponse : Fais appelle à la procédure **add_mylsit** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
-      - Endpoint : Si l'animé n'est pas déjà dans la liste personnelle de l'utilisateur, le rajoute et lui donne une note entre 1 et 5 compris. Sinon change la note de l'animé déjà présent par la note la plus récente.
-      
- 
-- **Cyril Grandjean** :
+- #### **Lucas Silva** :
+    - *add_mylist* 
+      - **Paramètres** : Prend comme paramètres un **token** de connexion (cfr create_token), un **titre** qui est l'id unique de l'animé et une **note** qui est un integer allant de 1 à 5. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé dans sa liste perso est envoyé.
+      - **Format de réponse** : Fais appelle à la procédure **add_mylist** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
+      - **Endpoint** : Si l'animé n'est pas déjà dans la liste personnelle de l'utilisateur, le rajoute et lui donne une note entre 1 et 5 compris. Sinon change la note de l'animé déjà présent par la note la plus récente.
     
-- **Mathieu Walravens** :
+    - *add_anime* 
+      - **Paramètres** : Prend comme paramètres un **titre** qui est un char(60) étant le titre de l'animé et un **genre** qui est un id unique dans la table *genre*. Toutes ces données sont prises lorsque le formulaire d'ajout d'animé est lancé.
+      - **Format de réponse** : Fais appelle à la procédure **add_anime** qui renvoie un **BOOLEAN** : 1 en cas de succès ou 0 en cas d'échec
+      - **Endpoint** : Si l'animé n'est pas déjà dans la base de donnée commune à tous les utilisateurs, le rajoute et lui donne un genre spécifique(aciton,aventure,...).          
  
-- **Quentin Servais** :
+- #### **Cyril Grandjean** :
+    
+- #### **Mathieu Walravens** :
+ 
+- #### **Quentin Servais** :
 
 # Détail DB
 ![](utile/images/diagramme_LI.jpg)
