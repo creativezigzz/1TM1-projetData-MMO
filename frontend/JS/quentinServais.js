@@ -60,7 +60,7 @@ function addField(){
 function addSelect(obj){
 	var container = document.getElementById("selectTitre");
 	var strHTML = "";
-	for(let i in obj){
+	for(let i of obj){
 		strHTML += `<option value="${i.id}">${i.anime}</option>`;
 	}
 	container.innerHTML = strHTML;
