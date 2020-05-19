@@ -18,9 +18,9 @@ BEGIN
   ENDIF;
   /*Ensuite on regarde si l'anime n'est pas déjà dans la base de donnée de la personne*/
   SET hope = (SELECT pseudo from personne where token = @token);
-  IF((SELECT 1 from myList natural join personne WHERE myList.animeId=animei AND personne.token=@token AND note < 6 ) = 1) THEN
+  IF((SELECT 1 from myList natural join personne WHERE myList.animeId=animei AND personne.token=@token) = 1) THEN
   /*Si oui, on mest a jour la note*/
-  UPDATE myList SET rating= note WHERE myList.animeId=animei AND myList.pseudo=hope;
+  UPDATE myList SET rating= MIN(note,5) WHERE myList.animeId=animei AND myList.pseudo=hope;
   SELECT 1;
   RETURN;
   ENDIF;
