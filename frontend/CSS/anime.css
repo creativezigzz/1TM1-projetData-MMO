@@ -2,86 +2,95 @@ html {
 	font-family: verdana, sans-serif;
 }
 body {
-	background: url("../IMG/mal2.png");
-	background-repeat: no-repeat;
-	background-position: top center;
-	background-position-y: 2.5em;
 	background-color: lightgrey;
-	position: center;
+}
+img#banner {
+	display: block;
+	margin: auto;
 }
 h1 {
 	text-align: center;
 }
 h6{
-	margin:0;
 	font-size: 0.7em;
-	color:grey;
+	color: grey;
+	margin: 0 0 10px 0;
+}
+nav {
+	background-color: rgb(25, 25, 25);
+	border: purple 0.1em solid;
+	height: 2em;
+	width: 758px;
+	margin: auto;
+}
+label {
+	margin-top: 10px;
+	display: block;
+}
+label[for=note] {
+	display: inline;
+}
+form input[type=submit] {
+	margin: 10px auto;
+	background: black;
+	color: white;
+	height: 30px;
+	width: auto;
+	font: bold 15px arial, sans-serif;
+	text-shadow:none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+input {
+	margin: 1px;
+	padding: 2px;
+	border: 2px purple solid;
+	border-radius: 2px;
+}
+input:focus {
+	margin: 0;
+	outline: none;
+	border: 3px purple solid;
+	border-radius: 3px;
+}
+select#titre {
+	margin-bottom: 10px;
 }
 a.discret,a.discret:visited{
 	font-size: 0.8em;
 	color:grey;
 }
-nav {
-	background-color: rgb(25, 25, 25);
-	border: purple 0.1em solid;
-	position: center;
-	height: 2em;
-	width: 758px;
-	margin-top: 0px;
-	margin: auto;
-}
 a,a:visited,a:active{
+	cursor: pointer;
 	color: white;
 	font-size: 1.5em;
-	margin: 0em 0.5em 0em 0.5em;
+	margin: 0 0.5em 0 0.5em;
 }
 a:hover{
 	color: purple;
 }
-#field{
-	border: purple 0.1em solid;
-	background-color: rgb(25, 25, 25);
-	text-align: center;
-	position: relative;
-	margin: auto;
-	width: 758px;
-	color: white;
-}
-.inscription{
-	float: right;
-}
-.connexion{
-	float: right;
-}
-.ajout{
-	border: purple 0.1em solid;
-	background-color: rgb(25, 25, 25);
-	text-align: center;
-	position: relative;
-	margin: auto;
-	width: 758px;
-	margin-top: 15.9em;
-	color: white;
-}
-.form{
-	float: right;
-}
 table{
-	margin: auto;
-	margin-top: 0em;
-	border: purple 0.2em solid;
-	background-color: rgb(25, 25, 25);
-	color: white;
-	width: 762px;
+	border: purple 0.1em solid;
+	width: 100%;
 	border-collapse: collapse;
 }
-th{
-	font-weight: bold;
-	border: purple 0.1em solid;
+tr:nth-child(odd), th {
+	background-color: black;
 }
-td{
+table.inverse tr:nth-child(even) {
+	background-color: black;
+}
+table.inverse tr:nth-child(odd) {
+	background-color: rgb(25, 25, 25);
+}
+th{
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+td, th{
+	padding: 5px;
 	border: purple 0.1em solid;
-	padding-left: 0.2em;
 }
 div{
 	background-color: rgb(25, 25, 25);
@@ -90,21 +99,41 @@ div#wrapper{
 	text-align: center;
 	border: purple 0.1em solid;
 	margin: auto;
-	margin-top: 15.9em;
 	width: 758px;
 	color: white;
 }
 div#content{
+	border: purple 0.1em solid;
 	text-align: center;
 	margin: auto;
-	margin-top: 15.9em;
-	width: 762px;
+	width: calc(762px - 0.2em);
 	color: white;
 }
-div#loginInfo{
-	width: 20em;
+#field{
+	/*border: purple 0.1em solid;*/
+	background-color: rgb(25, 25, 25);
+	text-align: center;
+	position: relative;
+	margin: auto;
+	width: 100%;
+	margin-bottom: 20px;
+	color: white;
+}
+.inscription, .connexion, .form, div#loginInfo{
 	float: right;
-
+}
+.hidden {
+	display: none;
+}
+.ajout{
+	/*border: purple 0.1em solid;*/
+	background-color: rgb(25, 25, 25);
+	text-align: center;
+	position: relative;
+	margin: auto;
+	width: 100%;
+	color: white;
+	margin: 20px 0;
 }
 .wrapper{
 	width: 762px;
@@ -116,19 +145,4 @@ div#loginInfo{
 }
 .erreur{
 	color: red;
-}
-label {
-	margin-top:10px;
-	display:block;
-}
-input[type=submit] {
-	margin-top: 10px;
-	margin-left: 20px;
-	background: black;
-	color: white;
-	height: 30px;
-	width: auto;
-	font: bold 15px arial, sans-serif;
-	text-shadow:none;
-	border-radius: 5px;
 }

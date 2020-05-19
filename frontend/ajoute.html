@@ -11,23 +11,22 @@
     <script src="/site/JS/lucasSilva.js"></script>
 </head>
 <body onload="verifLog();initAjout()">
-<nav>
-    <a class="accueil" href="/site/index.html">Accueil</a>
-    <div id="loginInfo">
+    <nav>
+        <a class="accueil" href="/site/index.html">Accueil</a>
+        <div id="loginInfo">
+        </div>
+    </nav>
+    <img id="banner" src="/site/img/mal2.png">
+    <div id="content" class="ajout">
+        <div id="resultat"></div>
+        <form id="formulaire" onsubmit="return ajouterAnim(this)">
+            <label for="titre">Titre de l'anime:</label>
+            <input id="titre" type="text" name="titre" required>
+            <label for="genre">Genre de l'anime:</label>
+            <select id="genre" name="genre"></select>
+            <br>
+            <input type="submit" value="Ajouter">
+        </form>
     </div>
-</nav>
-
-<div class="ajout">
-    <div id="resultat"></div>
-    <form id="formulaire" onsubmit="return ajouterAnim(this)">
-        <label for="titre">Titre de l'anime:</label>
-        <input id="titre" type="text" name="titre">
-        <label for="genre">Genre de l'anime:</label>
-        <select id="genre" name="genre"></select>
-        <br>
-        <input type="submit" value="ajouter">
-    </form>
-</div>
-
 </body>
 </html>

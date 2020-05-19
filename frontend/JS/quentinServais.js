@@ -10,7 +10,10 @@ function initListe(){
 		var ourData = JSON.parse(ourRequest.responseText);
 		if(ourData.length > 0){
 			renderHTML(ourData);
+		} else {
+  		document.getElementById("liste").innerHTML = "";
 		}
+
 	};
 	ourRequest.send();
 }
@@ -76,7 +79,8 @@ function suppression(form){
 	supprime.open('GET', '/remove?id=' + form.select.value +'&token=' + getCookie("token"));
 	supprime.onload = function(){
 		var del	= supprime.responseText;
-		document.getElementById("field").innerHTML = del;
+		document.getElementById("resultat").innerHTML = del;
+		document.getElementById("field").classList.add("hidden");
 		initListe();
 	};
 	supprime.send();

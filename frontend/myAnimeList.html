@@ -11,19 +11,26 @@
 	<script src="/site/JS/lucasSilva.js"></script>
 </head>
 <body onload="verifLog();initListe()">
-<nav>
-	<a class="accueil" href="/site/index.html">Accueil</a>
-	<div id="loginInfo">
+	<nav>
+		<a class="accueil" href="/site/index.html">Accueil</a>
+		<div id="loginInfo">
+		</div>
+	</nav>
+	<img id="banner" src="/site/img/mal2.png">
+	<div id="content">
+		<div class="ajout">
+			<a href="/site/form.html">Noter un anime</a><br>
+			<a href="#" onclick="addField();">Supprimer une note</a>
+		</div>
+		<div id="resultat"></div>
+		<div id="field" class="hidden">
+			<form onsubmit="return suppression(this);">
+				<label for="selectTitre">Note à supprimer:</label>
+				<select id="selectTitre" name="select"></select><br>
+				<input type="submit" value="Supprimer">
+			</form>
+		</div>
+		<div id="liste"></div>
 	</div>
-</nav>
-
-<div class="ajout">
-	<a href="/site/form.html">Ajouter un anime à votre liste:</a><br>
-	<a href="#" onclick="addField();">Supprimer un anime</a>
-</div>
-<div id="field"></div>
-	<section id="liste">
-
-	</section>
 </body>
 </html>
