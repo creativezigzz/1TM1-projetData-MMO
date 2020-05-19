@@ -56,9 +56,12 @@ input:focus {
 select#titre {
 	margin-bottom: 10px;
 }
-a.discret,a.discret:visited{
+a.discret,a.discret:active,a.discret:visited{
 	font-size: 0.8em;
 	color:grey;
+}
+a.discret:hover{
+	color: purple;
 }
 a,a:visited,a:active{
 	cursor: pointer;
