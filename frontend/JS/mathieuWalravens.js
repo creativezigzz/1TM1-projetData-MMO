@@ -151,3 +151,38 @@ function initTop() {
 
 	return false;
 }
+
+
+function fctJuin() {
+	let affichage = refElem('juinAffichage');
+	affichage.innerHTML = "appel en cours";
+
+	fetch('/service2006?number=2')
+		.then(r => r.json())
+		.then(data => {
+			if (data.length === 0) {
+				affichage.innerHTML += "<br>pas de résultats";
+			} else {
+				let tbody = [];
+
+				for (let row of data) {
+					tbody.push(`<td>${row.anime}</td><td>${row.number}</td>`);
+				}
+
+				affichage.innerHTML = `
+				<table>
+					<thead>
+						<tr>
+							<th>Anime</th>
+							<th>Nombre</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>${tbody.join('</tr><tr>')}</tr>
+					</tbody>
+				</table>`;
+			}
+		}).catch(err => {
+			affichage.innerHTML = `Une erreur est survenue: ${err}`;
+		});
+}

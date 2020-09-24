@@ -149,3 +149,6 @@ div#content{
 .erreur{
 	color: red;
 }
+#juinAffichage {
+	margin-bottom: 20px;
+}
